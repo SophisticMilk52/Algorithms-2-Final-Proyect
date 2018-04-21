@@ -17,6 +17,8 @@ public Principal() {
 
 
 public static void main(String[] args) {
-//hola	
+//hola
+	//ya estoy en linea
+	Principal p = new Principal();
 }
 }
