@@ -15,13 +15,13 @@ public class Principal extends JFrame{
 
 	public static final String STARTPANEL="panel_start_window";
 	public static final String LEGALPANEL="panel_legal";																																
+	public static final String LOGINPANEL="panel_login";
+	public static final String MENUPANEL="panel_menu";
 	
-	private UIManager diseño;
-	private JFrame f;
 	private JPanel panelGlobal;
-	private JButton comenzar;
 	private PanelStartWindow pStartWindow;
 	private PanelLegal pLegal;
+	private PanelMenu pMenu;
 	
 	public Principal() {
 		setLayout(new BorderLayout());
@@ -39,6 +39,7 @@ public class Principal extends JFrame{
 		panelGlobal=new JPanel(new CardLayout());
 		panelGlobal.add(pStartWindow,STARTPANEL);
 		panelGlobal.add(pLegal,LEGALPANEL);
+		panelGlobal.add(pMenu,MENUPANEL);
 		
 		add(panelGlobal,BorderLayout.CENTER);;
 	}
@@ -66,5 +67,27 @@ public class Principal extends JFrame{
 	public void mostrarPanelLegal() {
 		CardLayout cl=(CardLayout)panelGlobal.getLayout();
 		cl.show(panelGlobal,LEGALPANEL);
+	}
+	
+	public void mostrarPanelLogin() {
+		CardLayout cl=(CardLayout)panelGlobal.getLayout();
+		cl.show(panelGlobal,LOGINPANEL);
+	}
+	
+	public void mostrarPanelMenu() {
+		CardLayout cl=(CardLayout)panelGlobal.getLayout();
+		cl.show(panelGlobal,MENUPANEL);
+	}
+	
+	public void cerraLogInWindow() {
+		pLegal.cerrarLogInWindow();
+	}	
+	
+	public void cerrarSignUpWindow() {
+		pLegal. cerrarSignUp();
+	}
+	
+	public void mostrarLogInWindow() {
+		pLegal.mostrarLogInWindow();
 	}
 }
