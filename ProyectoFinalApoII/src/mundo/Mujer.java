@@ -1,252 +1,239 @@
 package mundo;
 
+import java.util.ArrayList;
+
 public class Mujer extends Usuario{
 	
 	//CONSTANTE
 	public static final String MUJER="Mujer";
 	
+	private Mujer siguiente;
+	
+	private ArrayList<Usuario> posibles;
+	
 	public Mujer(char priPregunta, char segPregunta, char triPregunta, char cuartPregunta,
 			char quinPregunta, char sexPregunta, char sepPregunta, char octPregunta, 
 			char novPregunta, char decPregunta, String foto, String nombre, 
 			String idSexual, String carrera, double altura, int edad,
-			int semeestre) {
-		super(0, priPregunta, segPregunta, triPregunta, cuartPregunta, quinPregunta, sexPregunta, sepPregunta,
-				octPregunta, novPregunta, decPregunta, foto, nombre, MUJER, idSexual, carrera, altura, edad, semeestre);
+			int semestre) {
+		super(priPregunta, segPregunta, triPregunta, cuartPregunta, quinPregunta, sexPregunta, sepPregunta,
+				octPregunta, novPregunta, decPregunta, foto, nombre, MUJER, idSexual, carrera, altura, edad, semestre);
+	}
+	
+	public Mujer getSiguiente() {
+		return siguiente;
+	}
+
+	public void setSiguiente(Mujer siguiente) {
+		this.siguiente = siguiente;
+	}
+
+	public ArrayList<Usuario> getPosibles() {
+		return posibles;
+	}
+
+	public void setPosibles(ArrayList<Usuario> posibles) {
+		this.posibles = posibles;
 	}
 
 	@Override
 	public int getAciertos() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getAciertos();
 	}
 
 	@Override
 	public void setAciertos(int aciertos) {
-		// TODO Auto-generated method stub
-		
+		super.setAciertos(aciertos);
 	}
 
 	@Override
+	public int getPopularidad() {
+		return super.getPopularidad();
+	}
+
+	@Override
+	public void setPopularidad(int popularidad) {
+		super.setPopularidad(popularidad);;
+	}
+	
+	@Override
 	public char getPriPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getPriPregunta();
 	}
 
 	@Override
 	public void setPriPregunta(char priPregunta) {
-		// TODO Auto-generated method stub
-		
+		super.setPriPregunta(priPregunta);
 	}
 
 	@Override
 	public char getSegPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getSegPregunta();
 	}
 
 	@Override
 	public void setSegPregunta(char segPregunta) {
-		// TODO Auto-generated method stub
-		
+		super.setSegPregunta(segPregunta);
 	}
 
 	@Override
-	public char getTriPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+	public char getTerPregunta() {
+		return super.getTerPregunta();
 	}
 
 	@Override
-	public void setTriPregunta(char triPregunta) {
-		// TODO Auto-generated method stub
-		
+	public void setTerPregunta(char terPregunta) {
+		super.setTerPregunta(terPregunta);
 	}
 
 	@Override
-	public char getCuartPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+	public char getCuarPregunta() {
+		return super.getCuarPregunta();
 	}
 
 	@Override
-	public void setCuartPregunta(char cuartPregunta) {
-		// TODO Auto-generated method stub
-		
+	public void setCuarPregunta(char cuarPregunta) {
+		super.setCuarPregunta(cuarPregunta);;
 	}
 
 	@Override
 	public char getQuinPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getQuinPregunta();
 	}
 
 	@Override
 	public void setQuinPregunta(char quinPregunta) {
-		// TODO Auto-generated method stub
-		
+		super.setQuinPregunta(quinPregunta);;
 	}
 
 	@Override
 	public char getSexPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getSexPregunta();
 	}
 
 	@Override
 	public void setSexPregunta(char sexPregunta) {
-		// TODO Auto-generated method stub
-		
+		super.setSexPregunta(sexPregunta);;
 	}
 
 	@Override
 	public char getSepPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getSepPregunta();
 	}
 
 	@Override
 	public void setSepPregunta(char sepPregunta) {
-		// TODO Auto-generated method stub
-		
+		super.setSepPregunta(sepPregunta);
 	}
 
 	@Override
 	public char getOctPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getOctPregunta();
 	}
 
 	@Override
 	public void setOctPregunta(char octPregunta) {
-		// TODO Auto-generated method stub
-		
+		super.setOctPregunta(octPregunta);
 	}
 
 	@Override
 	public char getNovPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getNovPregunta();
 	}
 
 	@Override
 	public void setNovPregunta(char novPregunta) {
-		// TODO Auto-generated method stub
-		
+		super.setNovPregunta(novPregunta);
 	}
 
 	@Override
 	public char getDecPregunta() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getDecPregunta();
 	}
 
 	@Override
 	public void setDecPregunta(char decPregunta) {
-		// TODO Auto-generated method stub
-		
+		super.setDecPregunta(decPregunta);
 	}
 
 	@Override
 	public String getFoto() {
-		// TODO Auto-generated method stub
-		return null;
+		return super.getFoto();
 	}
 
 	@Override
 	public void setFoto(String foto) {
-		// TODO Auto-generated method stub
-		
+		super.setFoto(foto);
 	}
 
 	@Override
 	public String getNombre() {
-		// TODO Auto-generated method stub
-		return null;
+		return super.getNombre();
 	}
 
 	@Override
 	public void setNombre(String nombre) {
-		// TODO Auto-generated method stub
-		
+		super.setNombre(nombre);
 	}
 
 	@Override
 	public String getGenero() {
-		// TODO Auto-generated method stub
-		return null;
+		return super.getGenero();
 	}
 
 	@Override
 	public void setGenero(String genero) {
-		// TODO Auto-generated method stub
-		
+		super.setGenero(genero);
 	}
 
 	@Override
 	public String getIdSexual() {
-		// TODO Auto-generated method stub
-		return null;
+		return super.getIdSexual();
 	}
-
+	
 	@Override
 	public void setIdSexual(String idSexual) {
-		// TODO Auto-generated method stub
-		
+		super.setIdSexual(idSexual);
 	}
 
 	@Override
 	public String getCarrera() {
-		// TODO Auto-generated method stub
-		return null;
+		return super.getCarrera();
 	}
 
 	@Override
 	public void setCarrera(String carrera) {
-		// TODO Auto-generated method stub
-		
+		super.setCarrera(carrera);
 	}
 
 	@Override
 	public double getAltura() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getAltura();
 	}
 
 	@Override
 	public void setAltura(double altura) {
-		// TODO Auto-generated method stub
-		
+		super.setAltura(altura);
 	}
 
 	@Override
 	public int getEdad() {
-		// TODO Auto-generated method stub
-		return 0;
+		return super.getEdad();
 	}
 
 	@Override
 	public void setEdad(int edad) {
-		// TODO Auto-generated method stub
-		
+		super.setEdad(edad);
 	}
 
 	@Override
-	public int getSemeestre() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getSemestre() {
+		return super.getSemestre();
 	}
 
 	@Override
-	public void setSemeestre(int semeestre) {
-		// TODO Auto-generated method stub
-		
+	public void setSemestre(int semestre) {
+		super.setSemestre(semestre);
 	}
-
-	@Override
-	public int compareTo(Usuario u) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 
 }

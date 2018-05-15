@@ -1,6 +1,8 @@
 package mundo;
 
-public abstract class Usuario implements Comparable<Usuario>{
+import java.io.*;
+
+public abstract class Usuario implements Comparable<Usuario>, Serializable{
 	
 	//CONSTANTES
 	public static final char RESPONDE_A='A';
@@ -13,10 +15,11 @@ public abstract class Usuario implements Comparable<Usuario>{
 	
 	//ATRIBUTOS
 	private int aciertos;
+	private int popularidad;
 	private char priPregunta;
 	private char segPregunta;
-	private char triPregunta;
-	private char cuartPregunta;
+	private char terPregunta;
+	private char cuarPregunta;
 	private char quinPregunta;
 	private char sexPregunta;
 	private char sepPregunta;
@@ -30,20 +33,20 @@ public abstract class Usuario implements Comparable<Usuario>{
 	private String carrera;
 	private double altura;
 	private int edad;
-	private int semeestre;
+	private int semestre;
 	
 	//CONSTRUCTOR
-	public Usuario(int aciertos, char priPregunta, char segPregunta, char triPregunta,
-			char cuartPregunta, char quinPregunta, char sexPregunta, char sepPregunta,
+	public Usuario(char priPregunta, char segPregunta, char terPregunta,
+			char cuarPregunta, char quinPregunta, char sexPregunta, char sepPregunta,
 			char octPregunta, char novPregunta, char decPregunta, String foto, 
 			String nombre, String genero, String idSexual, String carrera, 
-			double altura, int edad, int semeestre) {
-
-		this.aciertos = aciertos;
+			double altura, int edad, int semestre) {
+		this.aciertos = 0;
+		this.popularidad = 0;
 		this.priPregunta = priPregunta;
 		this.segPregunta = segPregunta;
-		this.triPregunta = triPregunta;
-		this.cuartPregunta = cuartPregunta;
+		this.terPregunta = terPregunta;
+		this.cuarPregunta = cuarPregunta;
 		this.quinPregunta = quinPregunta;
 		this.sexPregunta = sexPregunta;
 		this.sepPregunta = sepPregunta;
@@ -57,89 +60,173 @@ public abstract class Usuario implements Comparable<Usuario>{
 		this.carrera = carrera;
 		this.altura = altura;
 		this.edad = edad;
-		this.semeestre = semeestre;
+		this.semestre = semestre;
+	}
+
+	public int getAciertos() {
+		return aciertos;
+	}
+
+	public void setAciertos(int aciertos) {
+		this.aciertos = aciertos;
+	}
+
+	public int getPopularidad() {
+		return popularidad;
+	}
+
+	public void setPopularidad(int popularidad) {
+		this.popularidad = popularidad;
+	}
+
+	public char getPriPregunta() {
+		return priPregunta;
+	}
+
+	public void setPriPregunta(char priPregunta) {
+		this.priPregunta = priPregunta;
+	}
+
+	public char getSegPregunta() {
+		return segPregunta;
+	}
+
+	public void setSegPregunta(char segPregunta) {
+		this.segPregunta = segPregunta;
+	}
+
+	public char getTerPregunta() {
+		return terPregunta;
+	}
+
+	public void setTerPregunta(char terPregunta) {
+		this.terPregunta = terPregunta;
+	}
+
+	public char getCuarPregunta() {
+		return cuarPregunta;
+	}
+
+	public void setCuarPregunta(char cuarPregunta) {
+		this.cuarPregunta = cuarPregunta;
+	}
+
+	public char getQuinPregunta() {
+		return quinPregunta;
+	}
+
+	public void setQuinPregunta(char quinPregunta) {
+		this.quinPregunta = quinPregunta;
+	}
+
+	public char getSexPregunta() {
+		return sexPregunta;
+	}
+
+	public void setSexPregunta(char sexPregunta) {
+		this.sexPregunta = sexPregunta;
+	}
+
+	public char getSepPregunta() {
+		return sepPregunta;
+	}
+
+	public void setSepPregunta(char sepPregunta) {
+		this.sepPregunta = sepPregunta;
+	}
+
+	public char getOctPregunta() {
+		return octPregunta;
+	}
+
+	public void setOctPregunta(char octPregunta) {
+		this.octPregunta = octPregunta;
+	}
+
+	public char getNovPregunta() {
+		return novPregunta;
+	}
+
+	public void setNovPregunta(char novPregunta) {
+		this.novPregunta = novPregunta;
+	}
+
+	public char getDecPregunta() {
+		return decPregunta;
+	}
+
+	public void setDecPregunta(char decPregunta) {
+		this.decPregunta = decPregunta;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public String getIdSexual() {
+		return idSexual;
+	}
+
+	public void setIdSexual(String idSexual) {
+		this.idSexual = idSexual;
+	}
+
+	public String getCarrera() {
+		return carrera;
+	}
+
+	public void setCarrera(String carrera) {
+		this.carrera = carrera;
+	}
+
+	public double getAltura() {
+		return altura;
+	}
+
+	public void setAltura(double altura) {
+		this.altura = altura;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public int getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
 	}
 	
-	//GET Y SET
-	public abstract int getAciertos();
-	
-	public abstract void setAciertos(int aciertos);
-
-	public abstract char getPriPregunta();
-
-	public abstract void setPriPregunta(char priPregunta);
-
-	public abstract char getSegPregunta();
-
-	public abstract void setSegPregunta(char segPregunta);
-
-	public abstract char getTriPregunta();
-
-	public abstract void setTriPregunta(char triPregunta);
-
-	public abstract char getCuartPregunta();
-
-	public abstract void setCuartPregunta(char cuartPregunta);
-
-	public abstract char getQuinPregunta();
-
-	public abstract void setQuinPregunta(char quinPregunta);
-
-	public abstract char getSexPregunta();
-
-	public abstract void setSexPregunta(char sexPregunta);
-
-	public abstract char getSepPregunta();
-
-	public abstract void setSepPregunta(char sepPregunta);
-
-	public abstract char getOctPregunta();
-
-	public abstract void setOctPregunta(char octPregunta);
-
-	public abstract char getNovPregunta();
-
-	public abstract void setNovPregunta(char novPregunta);
-
-	public abstract char getDecPregunta();
-
-	public abstract void setDecPregunta(char decPregunta);
-
-	public abstract String getFoto();
-
-	public abstract void setFoto(String foto);
-
-	public abstract String getNombre();
-
-	public abstract void setNombre(String nombre);
-
-	public abstract String getGenero();
-
-	public abstract void setGenero(String genero);
-
-	public abstract String getIdSexual();
-
-	public abstract void setIdSexual(String idSexual);
-
-	public abstract String getCarrera();
-
-	public abstract void setCarrera(String carrera);
-	
-	public abstract double getAltura();
-
-	public abstract void setAltura(double altura);
-
-	public abstract int getEdad();
-
-	public abstract void setEdad(int edad);
-
-	public abstract int getSemeestre();
-
-	public abstract void setSemeestre(int semeestre);
-
 	@Override
-	public abstract int compareTo(Usuario u);
-
-
-
+	public int compareTo(Usuario user) {
+		int cantidadDeAciertos = 0;
+		
+		return cantidadDeAciertos;	
+	}
 }

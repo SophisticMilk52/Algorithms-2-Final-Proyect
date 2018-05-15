@@ -12,7 +12,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class PanelLegal extends JPanel{
+public class PanelLegal extends JPanel {
 	
 	public static final String DE_ACUERDO="yes";
 	public static final String DESACUERDO="no";
@@ -29,7 +29,7 @@ public class PanelLegal extends JPanel{
 		
 		setLayout(null);
 		
-		lw=new LogInWindow(mw);
+		lw=new LogInWindow(p);
 		
 		fondo=new ImageIcon("images/fondoLegal.png").getImage();
 		

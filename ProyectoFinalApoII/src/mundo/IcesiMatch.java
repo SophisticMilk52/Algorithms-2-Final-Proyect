@@ -4,18 +4,40 @@ import java.util.Comparator;
 
 public class IcesiMatch implements Comparator<Usuario>{
 	
-	private Usuario[] inicio,actual,pareja;
+	private Usuario[] inicios;
+	private Usuario actual;
+	private Usuario pareja;
 	
 	public IcesiMatch() {
-		inicio=new Usuario[3];
+		inicios = new Usuario[3];
 	}
-	
-	public void agregarUsuario(String s) {
-		
+
+	public Usuario[] getInicios() {
+		return inicios;
 	}
-	
-	public void eliminarUsuario(String s) {
-		
+
+	public void setInicios(Usuario[] inicios) {
+		this.inicios = inicios;
+	}
+
+	public Usuario getActual() {
+		return actual;
+	}
+
+	public void setActual(Usuario actual) {
+		this.actual = actual;
+	}
+
+	public Usuario getPareja() {
+		return pareja;
+	}
+
+	public void setPareja(Usuario pareja) {
+		this.pareja = pareja;
+	}
+
+	public Usuario buscar(int cual, Usuario actual, String quien) {
+		return null;
 	}
 
 	@Override
