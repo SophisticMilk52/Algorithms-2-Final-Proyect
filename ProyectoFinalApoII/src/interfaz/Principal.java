@@ -3,12 +3,8 @@ package interfaz;
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 
-import java.awt.CardLayout;
-
 import javax.swing.JFrame;
 
-import javax.swing.UIManager;
-import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 public class Principal extends JFrame{
@@ -18,9 +14,7 @@ public class Principal extends JFrame{
 	public static final String LOGINPANEL="panel_login";
 	public static final String MENUPANEL="panel_menu";
 	
-	private JPanel panelGlobal;
-	private PanelStartWindow pStartWindow;
-	private PanelLegal pLegal;
+	private LegalWindow lw;
 	private PanelMenu pMenu;
 	
 	public Principal() {
@@ -30,18 +24,13 @@ public class Principal extends JFrame{
 		setTitle("Evaluador de compatibilidad");
 		setResizable(false);
 		setLocationRelativeTo(null);
-		
+		setVisible(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		pStartWindow=new PanelStartWindow(this);
-		pLegal=new PanelLegal(this);
+		pMenu=new PanelMenu(this);
+		lw=new LegalWindow(this);
 		
-		panelGlobal=new JPanel(new CardLayout());
-		panelGlobal.add(pStartWindow,STARTPANEL);
-		panelGlobal.add(pLegal,LEGALPANEL);
-		panelGlobal.add(pMenu,MENUPANEL);
-		
-		add(panelGlobal,BorderLayout.CENTER);;
+		add(pMenu,BorderLayout.CENTER);;
 	}
 
 
@@ -61,33 +50,13 @@ public class Principal extends JFrame{
             		ex.printStackTrace();
         	}
 		Principal p = new Principal();
-		P.setVisible(true);
 	}
 	
-	public void mostrarPanelLegal() {
-		CardLayout cl=(CardLayout)panelGlobal.getLayout();
-		cl.show(panelGlobal,LEGALPANEL);
+	public void cerrarLegalWindow() {
+		lw.dispose();
 	}
-	
-	public void mostrarPanelLogin() {
-		CardLayout cl=(CardLayout)panelGlobal.getLayout();
-		cl.show(panelGlobal,LOGINPANEL);
-	}
-	
-	public void mostrarPanelMenu() {
-		CardLayout cl=(CardLayout)panelGlobal.getLayout();
-		cl.show(panelGlobal,MENUPANEL);
-	}
-	
-	public void cerraLogInWindow() {
-		pLegal.cerrarLogInWindow();
-	}	
-	
-	public void cerrarSignUpWindow() {
-		pLegal. cerrarSignUp();
-	}
-	
-	public void mostrarLogInWindow() {
-		pLegal.mostrarLogInWindow();
+
+	public void cerrarVentanaPrincipal() {
+		System.exit(0);
 	}
 }
