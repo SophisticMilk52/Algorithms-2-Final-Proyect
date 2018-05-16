@@ -59,4 +59,9 @@ public class Principal extends JFrame{
 	public void cerrarVentanaPrincipal() {
 		System.exit(0);
 	}
+	
+	public void setTextSexo(String d) {
+		lw.pLegal.uw.pUsuario.setTextSexo(d);
+	}
+	
 }
