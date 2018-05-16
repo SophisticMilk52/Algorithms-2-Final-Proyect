@@ -38,6 +38,8 @@ public class PanelLegal extends JPanel {
 		
 		setLayout(new GridBagLayout());
 		
+		uw=new UsuarioWindow(mw);
+		
 		fondo=new ImageIcon("images/fondoLegal.png").getImage();
 		
 		//los siguientes labels tienen la utilidad de brindar los espacios laterales de la ventana y entre los objetos
@@ -214,13 +216,16 @@ public class PanelLegal extends JPanel {
 			mw.cerrarVentanaPrincipal();
 		}
 		else if(comando.equals(MASC)) {
-			JOptionPane.showMessageDialog(null,"works");
+			mw.setTextSexo(MASC);
+			uw.setVisible(true);  
 		}
 		else if(comando.equals(FEMEN)) {
-			
+			mw.setTextSexo(FEMEN);
+			uw.setVisible(true);
 		}
 		else if(comando.equals(HEMA)) {
-			
+			uw.setVisible(true);
 		}
+		JOptionPane.getRootFrame().dispose();//cierra el JOptionPane actual
 	}
 }
