@@ -3,16 +3,16 @@ package interfaz;
 import javax.swing.JDialog;
 import java.awt.BorderLayout;
 
-public class LogInWindow extends JDialog{
+public class UsuarioWindow extends JDialog{
 
-	public PanelLogIn pLogIn;
+	public PanelUsuario pUsuario;
 	
-	public LogInWindow(Principal p) {
+	public UsuarioWindow(Principal p) {
 		super(p);
 		
-		pLogIn=new PanelLogIn(p);
-		setTitle("Registrese");
-		setSize(750,450);
+		pUsuario=new PanelUsuario(p);
+		setTitle("Ingrese");
+		setSize(700,800);
 		setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
 		
