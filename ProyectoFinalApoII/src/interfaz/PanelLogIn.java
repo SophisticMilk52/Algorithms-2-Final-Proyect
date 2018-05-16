@@ -1,189 +1,140 @@
 package interfaz;
 
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
 
-public class PanelLogIn extends JPanel implements ActionListener{
+public class PanelUsuario extends JPanel implements ActionListener{
   
-  public static final String INGRESAR="in";
-	public static final String REGISTRARSE="up";
+  public static final String SELECC="seleccionar";
+  public static final String ACEPTAR="aceptar";
+  public static final String FONDO_MASCULINO="images/fondoMasculino.png";
+  public static final String FONDO_FEMENINO="images/fondoFemenino.png";
+  public static final String FONDO_HEMA="images/fondoLegal.png";
+	
+  private JLabel JLnombre,JLidSexual,JLcarrera,JLaltura,JLedad,JLsemestre,JLfoto,sexo,JLfotoMarco;
+  private JTextField JTnombre,JTidSexual,JTcarrera,JTaltura,JTedad,JTsemestre;
+  private JButton JBseleccionar,JBaceptar;
+  private Image fondo;
+  private JPanel pAuxFoto,pDatos;
 	
   private Principal p;
-	private JTextField usuario;
-	private JPasswordField contraseña;
-	private JButton ingresar,registrarse;
-	private JLabel logo,etiqueta;
-	private Image fondo;
-	private SignUpWindow sw;
 	
   public PanelLogIn(Principal p) {
 		this.p=p;
+
+		setLayout(new BorderLayout());
 		
-		sw=new SignUpWindow(p);
-		
-		setLayout(new GridBagLayout());
-		
-		fondo=new ImageIcon("images/fondoLegal.png").getImage();
-		
-		JLabel lat=new JLabel();
-		JLabel lat2=new JLabel();
-		JLabel lat3=new JLabel();
+		JLabel l1=new JLabel();
 	
-		logo=new JLabel();
-		logo.setSize(170,170);
-		ImageIcon imagen=new ImageIcon("images/logo.png");
-		Icon logoImagen=new ImageIcon(imagen.getImage().getScaledInstance(logo.getWidth(),logo.getHeight(),Image.SCALE_DEFAULT));
-		logo.setHorizontalAlignment(SwingConstants.CENTER);
-		logo.setIcon(logoImagen);
+		pAuxFoto=new JPanel();
+		pAuxFoto.setLayout(new GridLayout(1,2));
+		pAuxFoto.setOpaque(false);
+		pAuxFoto.setPreferredSize(new Dimension(200,300));
+		pDatos=new JPanel();
+		pDatos.setLayout(new GridLayout(7,2));
+		pDatos.setOpaque(false);
+		pDatos.setSize(400,700);
 		
-		usuario=new JTextField("usuario");
-		usuario.setPreferredSize(new Dimension(0,10));
+		pAuxFoto=new JPanel();
+		pAuxFoto.setLayout(new GridLayout(1,2));
+		pAuxFoto.setOpaque(false);
+		pAuxFoto.setPreferredSize(new Dimension(200,300));
+		pDatos=new JPanel();
+		pDatos.setLayout(new GridLayout(7,2));
+		pDatos.setOpaque(false);
+		pDatos.setSize(400,700);
 		
-		contraseña=new JPasswordField();
-		contraseña.setPreferredSize(new Dimension(0,10));
+		JLfoto=new JLabel("Foto: ");
+		JLnombre=new JLabel("Nombre: ");
+		JLidSexual=new JLabel("Orientacion sexual: ");
+		JLcarrera=new JLabel("Carrera: ");
+		JLaltura=new JLabel("Altura: ");
+		JLedad=new JLabel("Edad: ");
+		JLsemestre=new JLabel("Semestre");
+		sexo=new JLabel();
 		
-		ingresar=new JButton("Ingresar");
-		ingresar.setActionCommand(INGRESAR);
-		ingresar.addActionListener(this);
+		JTnombre=new JTextField();
+		JTidSexual=new JTextField();
+		JTcarrera=new JTextField();
+		JTaltura= new JTextField();
+		JTedad= new JTextField();
+		JTsemestre=new JTextField();
 		
-		etiqueta=new JLabel("no tienes una cuenta?");
-		etiqueta.setHorizontalAlignment(SwingConstants.RIGHT);
+		JBseleccionar=new JButton("Seleccionar...");
+		JBseleccionar.setActionCommand(SELECC);
+		JBseleccionar.addActionListener(this);
+		JBaceptar=new JButton("Aceptar");
+		JBaceptar.setActionCommand(ACEPTAR);
+		JBaceptar.addActionListener(this);
 		
-		registrarse=new JButton("Registrarse");
-		registrarse.setActionCommand(REGISTRARSE);
-		registrarse.addActionListener(this);
 		
-		GridBagConstraints gbc=new GridBagConstraints();
+		pDatos.add(JLfoto);
+		pDatos.add(JBseleccionar);
+		pDatos.add(JLnombre);
+		pDatos.add(JTnombre);
+		pDatos.add(JLidSexual);
+		pDatos.add(JTidSexual);
+		pDatos.add(JLcarrera);
+		pDatos.add(JTcarrera);
+		pDatos.add(JLaltura);
+		pDatos.add(JTaltura);
+		pDatos.add(JLedad);
+		pDatos.add(JTedad);
+		pDatos.add(JLsemestre);
+		pDatos.add(JTsemestre);
 		
-		gbc.gridx=2;
-		gbc.gridy=0;
-		gbc.gridwidth=5;
-		gbc.gridheight=1;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(logo,gbc);
+		JLfotoMarco=new JLabel();
+		JLfotoMarco.setSize(220,250);
+		Image imagen=new ImageIcon("images/foto.jpg").getImage();
+		Icon foto=new ImageIcon(imagen.getScaledInstance(JLfotoMarco.getWidth(),JLfotoMarco.getHeight(),Image.SCALE_DEFAULT));
+		JLfotoMarco.setIcon(foto);
+	  
+		JLabel l1=new JLabel();
 		
-		gbc.gridx=0;
-		gbc.gridy=1;
-		gbc.gridwidth=1;
-		gbc.gridheight=9;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(lat,gbc);
+		pAuxFoto.add(l1);
+		pAuxFoto.add(JLfotoMarco);
 		
-		gbc.gridx=7;
-		gbc.gridy=1;
-		gbc.gridwidth=1;
-		gbc.gridheight=9;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(lat2,gbc);
-		
-		gbc.gridx=1;
-		gbc.gridy=3;
-		gbc.gridwidth=5;
-		gbc.gridheight=1;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(usuario,gbc);
-		
-		gbc.gridx=1;
-		gbc.gridy=5;
-		gbc.gridwidth=5;
-		gbc.gridheight=1;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(contraseña,gbc);
-		
-		gbc.gridx=1;
-		gbc.gridy=6;
-		gbc.gridwidth=5;
-		gbc.gridheight=1;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(ingresar,gbc);
-		
-		gbc.gridx=1;
-		gbc.gridy=7;
-		gbc.gridwidth=5;
-		gbc.gridheight=1;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(lat3,gbc);
-		
-		gbc.gridx=1;
-		gbc.gridy=8;
-		gbc.gridwidth=3;
-		gbc.gridheight=1;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(etiqueta,gbc);
-		
-		gbc.gridx=4;
-		gbc.gridy=8;
-		gbc.gridwidth=2;
-		gbc.gridheight=1;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(registrarse,gbc);
-		
-		gbc.gridx=4;
-		gbc.gridy=8;
-		gbc.gridwidth=2;
-		gbc.gridheight=1;
-		gbc.weightx=1.0;
-		gbc.weighty=1.0;
-		gbc.fill=GridBagConstraints.BOTH;
-		add(registrarse,gbc);
+		add(pAuxFoto,BorderLayout.NORTH);
+		add(pDatos,BorderLayout.CENTER);
+		add(JBaceptar,BorderLayout.SOUTH);
+	}
+	
+	public void decidirFondo() {
+		if(sexo.getText().equals(PanelLegal.MASC))
+			fondo=new ImageIcon(FONDO_MASCULINO).getImage();
+		else if(sexo.getText().equals(PanelLegal.FEMEN))
+			fondo=new ImageIcon(FONDO_FEMENINO).getImage();
+		else
+			fondo=new ImageIcon(FONDO_HEMA).getImage();
+	}
+	
+	public void setTextSexo(String d) {
+		sexo.removeAll();
+		sexo.setText(d);
 	}
   
   @Override
 	public void actionPerformed(ActionEvent a) {
 		String comando=a.getActionCommand();
-		if(comando.equals(INGRESAR)) {
-			p.setVisible(true);
-			p.cerraLogInWindow();
-			p.mostrarPanelMenu();
-		}
-		else if(comando.equals(REGISTRARSE)) {
-			sw.setVisible(true);
-			p.cerraLogInWindow();
-		}
 	}
   
   @Override
 	public void paint(Graphics g) {
+		decidirFondo();
 		g.drawImage(fondo,0,0,getWidth(),getHeight(),this);
 		setOpaque(false);
 		super.paint(g);
 	}
-	
-	public void cerrarSignUpWindow() {
-		sw.dispose();
-	}
-  
 }
