@@ -45,7 +45,7 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		pDatos=new JPanel();
 		pDatos.setLayout(new GridLayout(7,2));
 		pDatos.setOpaque(false);
-		pDatos.setSize(400,700);
+		//pDatos.setSize(400,700);
 		
 		pAuxFoto=new JPanel();
 		pAuxFoto.setLayout(new GridLayout(1,2));
