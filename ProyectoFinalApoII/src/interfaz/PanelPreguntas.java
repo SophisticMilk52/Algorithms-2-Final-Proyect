@@ -128,7 +128,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
   }
   @Override
   public void paint(Graphics g) {
-	g.drawImage(mw.getFondoUsuario(),0,0,getWidth(),getHeight(),this);
+	g.drawImage(p.getFondoUsuario(),0,0,getWidth(),getHeight(),this);
 	setOpaque(false);
 	super.paint(g);
   }
