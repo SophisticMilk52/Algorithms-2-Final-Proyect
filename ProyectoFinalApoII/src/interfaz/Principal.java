@@ -8,29 +8,24 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 public class Principal extends JFrame{
-
-	public static final String STARTPANEL="panel_start_window";
-	public static final String LEGALPANEL="panel_legal";																																
-	public static final String LOGINPANEL="panel_login";
-	public static final String MENUPANEL="panel_menu";
 	
 	private LegalWindow lw;
-	private PanelMenu pMenu;
+	private PanelPreguntas pPreguntas;
 	
 	public Principal() {
 		setLayout(new BorderLayout());
 		
-		setSize(990,990);
+		setSize(790,700);
 		setTitle("Evaluador de compatibilidad");
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		pMenu=new PanelMenu(this);
+		pPreguntas=new PanelPreguntas(this);
 		lw=new LegalWindow(this);
 		
-		add(pMenu,BorderLayout.CENTER);;
+		add(pPreguntas,BorderLayout.CENTER);;
 	}
 
 
