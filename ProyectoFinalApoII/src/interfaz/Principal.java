@@ -59,4 +59,8 @@ public class Principal extends JFrame{
 		lw.pLegal.uw.pUsuario.setTextSexo(d);
 	}
 	
+	public java.awt.Image  getFondoUsuario() {
+		return lw.pLegal.uw.pUsuario.getFondoUsuario();
+	}
+	
 }
