@@ -132,6 +132,10 @@ public class PanelUsuario extends JPanel implements ActionListener{
   @Override
 	public void actionPerformed(ActionEvent a) {
 		String comando=a.getActionCommand();
+		if(comando.equals((ACEPTAR))) {
+			p.setVisible(true);
+			p.cerrarVentanaUsuario();
+		}
 	}
   
   @Override
