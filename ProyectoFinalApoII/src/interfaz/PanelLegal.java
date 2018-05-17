@@ -197,6 +197,10 @@ public class PanelLegal extends JPanel {
         	JOptionPane.showOptionDialog(null, "Seleccione: ", "Sexo", 0, 0,new ImageIcon("images/logoMini.png"), opciones,null);
 	}
 	
+	public void cerrarVentanaUsuario() {
+		uw.dispose();
+	}
+	
 	@Override
 	public void paint(Graphics g) {
 		g.drawImage(fondo,0,0,getWidth(),getHeight(),this);
