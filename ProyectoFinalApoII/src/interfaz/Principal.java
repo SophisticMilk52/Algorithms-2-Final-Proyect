@@ -63,4 +63,8 @@ public class Principal extends JFrame{
 		return lw.pLegal.uw.pUsuario.getFondoUsuario();
 	}
 	
+	public void cerrarVentanaUsuario() {
+		lw.pLegal.cerrarVentanaUsuario();
+	}
+	
 }
