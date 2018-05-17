@@ -123,7 +123,14 @@ public class PanelPreguntas extends JPanel implements ActionListener{
   }
   
   @Override
-	public void actionPerformed(ActionEvent a) {
-		String comando=a.getActionCommand();
-	}
+  public void actionPerformed(ActionEvent a) {
+	String comando=a.getActionCommand();
+  }
+  @Override
+  public void paint(Graphics g) {
+	g.drawImage(mw.getFondoUsuario(),0,0,getWidth(),getHeight(),this);
+	setOpaque(false);
+	super.paint(g);
+  }
+}
 }
