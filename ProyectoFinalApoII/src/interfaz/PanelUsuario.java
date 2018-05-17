@@ -26,7 +26,7 @@ public class PanelUsuario extends JPanel implements ActionListener{
   private JLabel JLnombre,JLidSexual,JLcarrera,JLaltura,JLedad,JLsemestre,JLfoto,sexo,JLfotoMarco;
   private JTextField JTnombre,JTidSexual,JTcarrera,JTaltura,JTedad,JTsemestre;
   private JButton JBseleccionar,JBaceptar;
-  private Image fondo;
+  private Image fondoUsuario;
   private JPanel pAuxFoto,pDatos;
 	
   private Principal p;
@@ -113,16 +113,20 @@ public class PanelUsuario extends JPanel implements ActionListener{
 	
 	public void decidirFondo() {
 		if(sexo.getText().equals(PanelLegal.MASC))
-			fondo=new ImageIcon(FONDO_MASCULINO).getImage();
+			fondoUsuario=new ImageIcon(FONDO_MASCULINO).getImage();
 		else if(sexo.getText().equals(PanelLegal.FEMEN))
-			fondo=new ImageIcon(FONDO_FEMENINO).getImage();
+			fondoUsuario=new ImageIcon(FONDO_FEMENINO).getImage();
 		else
-			fondo=new ImageIcon(FONDO_HEMA).getImage();
+			fondoUsuario=new ImageIcon(FONDO_HEMA).getImage();
 	}
 	
 	public void setTextSexo(String d) {
 		sexo.removeAll();
 		sexo.setText(d);
+	}
+	
+	public Image getFondoUsuario() {
+		return fondoUsuario;
 	}
   
   @Override
@@ -133,7 +137,7 @@ public class PanelUsuario extends JPanel implements ActionListener{
   @Override
 	public void paint(Graphics g) {
 		decidirFondo();
-		g.drawImage(fondo,0,0,getWidth(),getHeight(),this);
+		g.drawImage(fondoUsuario,0,0,getWidth(),getHeight(),this);
 		setOpaque(false);
 		super.paint(g);
 	}
