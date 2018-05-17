@@ -7,7 +7,7 @@ public class LegalWindow extends JDialog{
 	
 	private PanelLegal pLegal;
 
-	public SignUpWindow(Principal p) {
+	public LegalWindow(Principal p) {
 		super(p);
 		
 		pLegal=new PanelLegal(p);
