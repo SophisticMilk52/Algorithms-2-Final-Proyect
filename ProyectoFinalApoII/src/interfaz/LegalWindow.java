@@ -5,7 +5,7 @@ import javax.swing.JDialog;
 
 public class LegalWindow extends JDialog{
 	
-	private PanelLegal pLegal;
+	public PanelLegal pLegal;
 
 	public LegalWindow(Principal p) {
 		super(p);
