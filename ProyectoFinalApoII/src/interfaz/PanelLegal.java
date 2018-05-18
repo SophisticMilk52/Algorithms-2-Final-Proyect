@@ -40,7 +40,7 @@ public class PanelLegal extends JPanel implements ActionListener{
 		
 		setLayout(new GridBagLayout());
 		
-		p=new UsuarioWindow(p);
+		uw=new UsuarioWindow(p);
 		
 		fondo=new ImageIcon("images/fondoLegal.png").getImage();
 		
