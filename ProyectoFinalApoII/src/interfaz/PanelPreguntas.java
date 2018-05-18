@@ -133,4 +133,3 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 	super.paint(g);
   }
 }
-}
