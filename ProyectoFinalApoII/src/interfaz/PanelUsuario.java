@@ -31,12 +31,10 @@ public class PanelUsuario extends JPanel implements ActionListener{
 	
   private Principal p;
 	
-  public PanelLogIn(Principal p) {
+  public PanelUsuario(Principal p) {
 		this.p=p;
 
 		setLayout(new BorderLayout());
-		
-		JLabel l1=new JLabel();
 	
 		pAuxFoto=new JPanel();
 		pAuxFoto.setLayout(new GridLayout(1,2));
