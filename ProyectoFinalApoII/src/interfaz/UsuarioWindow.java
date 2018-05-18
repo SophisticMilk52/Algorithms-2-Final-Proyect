@@ -16,6 +16,6 @@ public class UsuarioWindow extends JDialog{
 		setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
 		
-		add(pLogIn,BorderLayout.CENTER);
+		add(pUsuario,BorderLayout.CENTER);
 	}
 }
