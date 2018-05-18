@@ -17,7 +17,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class PanelLegal extends JPanel {
+public class PanelLegal extends JPanel implements ActionPerformed{
 
 	public static final String DE_ACUERDO="yes";
 	public static final String DESACUERDO="no";
@@ -211,9 +211,10 @@ public class PanelLegal extends JPanel {
 	@Override
 	public void actionPerformed(ActionEvent a) {
 		String comando=a.getActionCommand();
+		
 		if(comando.equals(DE_ACUERDO)) {
 			mw.cerrarLegalWindow();
-			mostrarVentanaSexo();		
+			mostrarVentanaSexo();
 		}
 		else if(comando.equals(DESACUERDO)) {
 			mw.cerrarLegalWindow();
@@ -221,15 +222,18 @@ public class PanelLegal extends JPanel {
 		}
 		else if(comando.equals(MASC)) {
 			mw.setTextSexo(MASC);
-			uw.setVisible(true);  
+			uw.setVisible(true);
+			//JOptionPane.getRootFrame().dispose();   
 		}
 		else if(comando.equals(FEMEN)) {
 			mw.setTextSexo(FEMEN);
 			uw.setVisible(true);
+			//JOptionPane.getRootFrame().dispose();   
 		}
 		else if(comando.equals(HEMA)) {
 			uw.setVisible(true);
+			 
 		}
-		JOptionPane.getRootFrame().dispose();//cierra el JOptionPane actual
+		JOptionPane.getRootFrame().dispose();  
 	}
 }
