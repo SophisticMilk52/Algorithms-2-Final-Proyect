@@ -17,7 +17,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-public class PanelLegal extends JPanel implements ActionPerformed{
+public class PanelLegal extends JPanel implements ActionListener{
 
 	public static final String DE_ACUERDO="yes";
 	public static final String DESACUERDO="no";
@@ -29,16 +29,18 @@ public class PanelLegal extends JPanel implements ActionPerformed{
 	private JButton BTdesacuerdo;
 	private JTextPane JTcontrato;
 	private Image fondo;
+	private JLabel JLlogo;
 	private JButton BTmasculino,BTfemenino,BThema;
 	
 	private Principal p;
+	public UsuarioWindow uw;
 	
 	public PanelLegal(Principal p) {
 		this.p=p;
 		
 		setLayout(new GridBagLayout());
 		
-		uw=new UsuarioWindow(mw);
+		p=new UsuarioWindow(p);
 		
 		fondo=new ImageIcon("images/fondoLegal.png").getImage();
 		
@@ -186,10 +188,6 @@ public class PanelLegal extends JPanel implements ActionPerformed{
 		gbc.weighty=1.0;
 		gbc.fill=GridBagConstraints.BOTH;
 		add(l5,gbc);
-		
-		add(desacuerdo);
-		add(deAcuerdo);	
-		add(contrato);
 	}
 	
 	public void mostrarVentanaSexo() {		
@@ -213,20 +211,20 @@ public class PanelLegal extends JPanel implements ActionPerformed{
 		String comando=a.getActionCommand();
 		
 		if(comando.equals(DE_ACUERDO)) {
-			mw.cerrarLegalWindow();
+			p.cerrarLegalWindow();
 			mostrarVentanaSexo();
 		}
 		else if(comando.equals(DESACUERDO)) {
-			mw.cerrarLegalWindow();
-			mw.cerrarVentanaPrincipal();
+			p.cerrarLegalWindow();
+			p.cerrarVentanaPrincipal();
 		}
 		else if(comando.equals(MASC)) {
-			mw.setTextSexo(MASC);
+			p.setTextSexo(MASC);
 			uw.setVisible(true);
 			//JOptionPane.getRootFrame().dispose();   
 		}
 		else if(comando.equals(FEMEN)) {
-			mw.setTextSexo(FEMEN);
+			p.setTextSexo(FEMEN);
 			uw.setVisible(true);
 			//JOptionPane.getRootFrame().dispose();   
 		}
