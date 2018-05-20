@@ -2,10 +2,14 @@ package interfaz;
 
 import javax.swing.JDialog;
 import java.awt.BorderLayout;
-
+/**
+ * Esta clase pretende ofrecer la ventana visible que contendrá el diseño que ofrecerá el "PanelUsuario", donde el usuario tendrá que digitar la información que se le pida
+ */
 public class UsuarioWindow extends JDialog{
-
-	public PanelUsuario pUsuario;
+	/**
+	 * Relacion entre clases
+	 */
+	public PanelUsuario pUsuario;//relación con la clase PanelUsuario
 	
 	public UsuarioWindow(Principal p) {
 		super(p);
