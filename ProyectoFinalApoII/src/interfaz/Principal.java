@@ -7,10 +7,16 @@ import javax.swing.JFrame;
 
 import javax.swing.UIManager;
 
+/**
+ * Esta clase es la clase principal del paquete interfaz. Es la que ejecutará la parte visible del programa y contendrá los métodos de una clase especifica y que vayan a ser necesitados por otras
+ */
 public class Principal extends JFrame{
 	
-	private LegalWindow lw;
-	private PanelPreguntas pPreguntas;
+	/**
+	 * Relaciones entre clases
+	 */
+	private LegalWindow lw;//Relación con la clase LegalWindow
+	private PanelPreguntas pPreguntas;//Relación con la clase PanelPreguntas
 	
 	public Principal() {
 		setLayout(new BorderLayout());
@@ -31,14 +37,6 @@ public class Principal extends JFrame{
 
 
 	public static void main(String[] args) {
-//hola
-	//si van a trabajar en una classe escriban en esta parte: ej, estoy trabajando en la clase Principal
-	// esto sinifica que nadie puede trabajar sobre esa clase, saludos cuidense y me avisan si no saben o entienden el diagrama 
-		
-		/*No estaba seguro si escribir sobre esta clase, pues no sabía si alguien estaba trabajando en ella. Ṕero
-		como no se editaba hace tiempo, decidí hacerlo.*/
-		
-		
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
         	} catch (Exception ex) {
@@ -50,19 +48,28 @@ public class Principal extends JFrame{
 	public void cerrarLegalWindow() {
 		lw.dispose();
 	}
-
+	/**	
+	 * Este método cierra la ventana principal y termina sus procesos.
+	 * <b>post:</b> Se ha cerrado la ventana pricipal.<br>
+	 */
 	public void cerrarVentanaPrincipal() {
 		System.exit(0);
 	}
-	
+	/**
+	 * Método perteneciente a la clase PanelUsuario (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
+	 */
 	public void setTextSexo(String d) {
 		lw.pLegal.uw.pUsuario.setTextSexo(d);
 	}
-	
+	/**
+	 * Método perteneciente a la clase PanelUsuario (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
+	 */
 	public java.awt.Image  getFondoUsuario() {
 		return lw.pLegal.uw.pUsuario.getFondoUsuario();
 	}
-	
+	/**
+	 * Método perteneciente a la clase PanelLegal (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
+	 */
 	public void cerrarVentanaUsuario() {
 		lw.pLegal.cerrarVentanaUsuario();
 	}
