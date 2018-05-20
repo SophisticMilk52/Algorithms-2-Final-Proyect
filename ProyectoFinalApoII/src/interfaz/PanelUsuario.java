@@ -15,21 +15,32 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
+/**
+ *Esta clase pretende ofrecer el diseño de la ventana donde el usuario tendrá que digitar la información que se le pida 
+ */
 public class PanelUsuario extends JPanel implements ActionListener{
   
+ /**
+	 * Constantes
+	 */
   public static final String SELECC="seleccionar";
   public static final String ACEPTAR="aceptar";
   public static final String FONDO_MASCULINO="images/fondoMasculino.png";
   public static final String FONDO_FEMENINO="images/fondoFemenino.png";
   public static final String FONDO_HEMA="images/fondoLegal.png";
-	
+
+/**
+ * Variables privadas
+*/
   private JLabel JLnombre,JLidSexual,JLcarrera,JLaltura,JLedad,JLsemestre,JLfoto,sexo,JLfotoMarco;
   private JTextField JTnombre,JTidSexual,JTcarrera,JTaltura,JTedad,JTsemestre;
   private JButton JBseleccionar,JBaceptar;
   private Image fondoUsuario;
   private JPanel pAuxFoto,pDatos;
-	
-  private Principal p;
+/**
+ * Relaciones entre clases
+*/
+  private Principal p;//Relación con la clase Principal
 	
   public PanelUsuario(Principal p) {
 		this.p=p;
@@ -108,7 +119,10 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		add(pDatos,BorderLayout.CENTER);
 		add(JBaceptar,BorderLayout.SOUTH);
 	}
-	
+	/**
+	 * Este método decide el fondo de la ventana del usuario (PanelUsuario) según el sexo que éste haya elegido en la ventana anterior (LegalWindow).
+	 *  <b>post:</b> Se ha decidido el fondo  y se ha puesto en la ventana.<br>
+	 */
 	public void decidirFondo() {
 		if(sexo.getText().equals(PanelLegal.MASC))
 			fondoUsuario=new ImageIcon(FONDO_MASCULINO).getImage();
@@ -117,12 +131,21 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		else
 			fondoUsuario=new ImageIcon(FONDO_HEMA).getImage();
 	}
-	
+	/**
+	 * Este método obtendrá por parámetro el sexo seleccionado por el usuario en la "ventanaSexo" (vease el método mostrarVentanaSexo en la clase PanelLegal) y lo pondrá en la variable "sexo" con el fin ésta siva como
+	 * identificador para decidir el fondo en el método "decidirFondo".
+	 * @param sexoS Es el sexo seleccionado por el usuario. De tipo String. sexoS != " ".
+	 * <b>post:</b> Se ha cambiado el valor de la variable "sexo".<br>
+	 */
 	public void setTextSexo(String d) {
 		sexo.removeAll();
 		sexo.setText(d);
 	}
-	
+	/**
+	 * Este método retornará un objeto de tipo Image, el cual representa el estado de la variable fondoUsuario, que decide el fondo que tendrá el panel.
+	 * <b>post:</b> Se ha retornado el objeto de tipo Image.<br>
+	 * @return se retorna un objeto de tipo Image que representa el fondo que tendrá el panel.
+	 */
 	public Image getFondoUsuario() {
 		return fondoUsuario;
 	}
