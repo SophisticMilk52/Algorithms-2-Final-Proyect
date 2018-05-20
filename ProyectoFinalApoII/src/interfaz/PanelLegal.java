@@ -17,23 +17,35 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+/**
+ * Esta clase pretende ofrecer el diseño de la ventana de los terminos del software (LegalWindow).
+ */
 public class PanelLegal extends JPanel implements ActionListener{
-
+	
+	/**
+	 * Constantes
+	 */
 	public static final String DE_ACUERDO="yes";
 	public static final String DESACUERDO="no";
 	public static final String MASC="masculino";
 	public static final String FEMEN="femenino";
 	public static final String HEMA="hemafrodita";
 	
-	private JButton BTdeAcuerdo;
-	private JButton BTdesacuerdo;
-	private JTextPane JTcontrato;
-	private Image fondo;
-	private JLabel JLlogo;
+	/**
+	 * Variables privadas
+	 */
+	private JButton BTdeAcuerdo;//Variable de tipo JButton. Representa el botón con el que el usuario estará de acuerdo con los terminos del softwareen en caso de oprimirlo
+	private JButton BTdesacuerdo;//Variable de tipo JButton. Representa el botón con el que el usuario estará desacuerdo con los terminos del softwareen en caso de oprimirlo
+	private JTextPane JTcontrato;//Variable de tipo JTextPane. Representa el espacio donde estarán escritos los terminos del software
+	private Image fondo;//Variable de tipo Image. Representa el fondo que tendrá el panel
+	private JLabel JLlogo;//Variable de tipo JLabel. Representra el logo en el panel
 	private JButton BTmasculino,BTfemenino,BThema;
 	
-	private Principal p;
-	public UsuarioWindow uw;
+	/**
+	 * Relaciones entre clases
+	 */
+	private Principal p;//Relación con la clase Principal 
+	public UsuarioWindow uw;//Relación con la clase UsuarioWindow
 	
 	public PanelLegal(Principal p) {
 		this.p=p;
@@ -189,12 +201,18 @@ public class PanelLegal extends JPanel implements ActionListener{
 		gbc.fill=GridBagConstraints.BOTH;
 		add(l5,gbc);
 	}
-	
+	/**
+	 * Este método muestra una ventana (JOptionPane) la cual tiene las opciones del sexo que el suario puede elegir
+	 * <b>post:</b> Se muestra en pantalla la ventana (JOptioPane).<br>
+	 */
 	public void mostrarVentanaSexo() {		
 		JButton[] opciones = {BThema,BTmasculino,BTfemenino};
         	JOptionPane.showOptionDialog(null, "Seleccione: ", "Sexo", 0, 0,new ImageIcon("images/logoMini.png"), opciones,null);
 	}
-	
+	/**
+	 * Este método cierra la ventana de donde el usuario registrará sus datos (UsuarioWindow)
+	 *  <b>post:</b> Se ha cerrado la ventana.<br>
+	 */
 	public void cerrarVentanaUsuario() {
 		uw.dispose();
 	}
