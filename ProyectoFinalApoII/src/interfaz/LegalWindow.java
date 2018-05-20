@@ -3,9 +3,15 @@ package interfaz;
 import java.awt.BorderLayout;
 import javax.swing.JDialog;
 
+/**
+ * Esta clase pretende ofrecer la ventana visible que contendrá el diseño que ofrecerá el "PanelLegal", donde el usuario podrá visualizar y aceptar, o no, los terminos del software 
+ */
 public class LegalWindow extends JDialog{
 	
-	public PanelLegal pLegal;
+	/**
+	 * Relaciones entre clases
+	 */
+	public PanelLegal pLegal;//Relación con la clase PanelLegal
 
 	public LegalWindow(Principal p) {
 		super(p);
