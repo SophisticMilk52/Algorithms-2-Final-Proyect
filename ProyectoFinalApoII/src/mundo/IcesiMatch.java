@@ -1,43 +1,83 @@
+/**
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Universidad Icesi (Cali - Colombia)
+ * Proyecto Final Algoritmos Y Progamación 2
+ * Autores: Cristian Gironza, Alejandro, Brayan
+ * Todos los derechos reservados y para usos con fines educativos
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ **/
+
 package mundo;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.Comparator;
 
+/**
+ * Clase que representa a la aplicacion IcesiMatch
+ */
 public class IcesiMatch implements Comparator<Usuario>{
+	//RELACIONES//
+	/**
+	 * Relacion que representa el arbol de usuarios
+	 */
+	private Usuario raiz;
 	
-	private Usuario[] inicios;
+	/**
+	 * Relacion que representa la lista de usuarios
+	 */
+	private Pregunta inicio;
+	
+	//CONSTANTES//
+	/**
+	 * Costante que representa la ruta del archivo donde se guardará y cargará
+	 * los usuarios y su respectiva información
+	 */
+	private final static String DATA = "./Datos/usuarios.dat";
+	
+	/**
+	 * Costante que representa la ruta del archivo donde se escribirá el historial
+	 * de usuarios
+	 */
+	private final static String HISTORIAL = "./Datos/historial.txt";
+
+	//ATRIBUTOS
+	/**
+	 * Atributo que representa la cantidad de usuarios registrados
+	 */
+	private int cantidad;
+	
+	/**
+	 * Atributo que representa al usuario actual que esta buscando su match
+	 */
 	private Usuario actual;
-	private Usuario pareja;
 	
+	/**
+	 * Constructor de la clase IcesiMatch
+	 */
 	public IcesiMatch() {
-		inicios = new Usuario[3];
+	
 	}
+	
+	public void cargar() {
+		try {
+			FileInputStream fis = new FileInputStream(DATA);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			raiz = (Usuario) ois.readObject();
+			fis.close();
+			ois.close();
+		} catch (Exception e) {
 
-	public Usuario[] getInicios() {
-		return inicios;
+		}
 	}
-
-	public void setInicios(Usuario[] inicios) {
-		this.inicios = inicios;
-	}
-
-	public Usuario getActual() {
-		return actual;
-	}
-
-	public void setActual(Usuario actual) {
-		this.actual = actual;
-	}
-
-	public Usuario getPareja() {
-		return pareja;
-	}
-
-	public void setPareja(Usuario pareja) {
-		this.pareja = pareja;
-	}
-
-	public Usuario buscar(int cual, Usuario actual, String quien) {
-		return null;
+	
+	public void guardar() {
+		try {
+			
+		} catch (Exception e) {
+			
+		}	
 	}
 
 	@Override
