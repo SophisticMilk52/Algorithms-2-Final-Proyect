@@ -60,6 +60,9 @@ public class IcesiMatch implements Comparator<Usuario>{
 	
 	}
 	
+	/**
+	 * Constructor de la clase IcesiMatch
+	 */
 	public void cargar() {
 		try {
 			FileInputStream fis = new FileInputStream(DATA);
