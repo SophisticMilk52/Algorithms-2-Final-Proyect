@@ -209,13 +209,6 @@ public class PanelLegal extends JPanel implements ActionListener{
 		JButton[] opciones = {BThema,BTmasculino,BTfemenino};
         	JOptionPane.showOptionDialog(null, "Seleccione: ", "Sexo", 0, 0,new ImageIcon("images/logoMini.png"), opciones,null);
 	}
-	/**
-	 * Este método cierra la ventana de donde el usuario registrará sus datos (UsuarioWindow)
-	 *  <b>post:</b> Se ha cerrado la ventana.<br>
-	 */
-	public void cerrarVentanaUsuario() {
-		uw.dispose();
-	}
 	
 	@Override
 	public void paint(Graphics g) {
@@ -229,25 +222,25 @@ public class PanelLegal extends JPanel implements ActionListener{
 		String comando=a.getActionCommand();
 		
 		if(comando.equals(DE_ACUERDO)) {
-			p.cerrarLegalWindow();
+			p.cerrarVentanaLegal();
 			mostrarVentanaSexo();
 		}
 		else if(comando.equals(DESACUERDO)) {
-			p.cerrarLegalWindow();
+			p.cerrarVentanaLegal();
 			p.cerrarVentanaPrincipal();
 		}
 		else if(comando.equals(MASC)) {
 			p.setTextSexo(MASC);
-			uw.setVisible(true);
+			p.mostrarVentanaUsuario();
 			//JOptionPane.getRootFrame().dispose();   
 		}
 		else if(comando.equals(FEMEN)) {
 			p.setTextSexo(FEMEN);
-			uw.setVisible(true);
+			p.mostrarVentanaUsuario();
 			//JOptionPane.getRootFrame().dispose();   
 		}
 		else if(comando.equals(HEMA)) {
-			uw.setVisible(true);
+			p.mostrarVentanaUsuario();
 			 
 		}
 		JOptionPane.getRootFrame().dispose();  
