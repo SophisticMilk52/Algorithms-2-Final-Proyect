@@ -74,7 +74,7 @@ public class Principal extends JFrame{
 	 * Método perteneciente a la clase PanelUsuario (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
 	 */
 	public java.awt.Image  getFondoUsuario() {
-		return lw.pLegal.uw.pUsuario.getFondoUsuario();
+		return uw.pUsuario.getFondoUsuario();
 	}
 	/**
 	 * Método perteneciente a la clase UsuarioWindow (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
