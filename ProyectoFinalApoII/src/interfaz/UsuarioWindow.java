@@ -22,4 +22,15 @@ public class UsuarioWindow extends JDialog{
 		
 		add(pUsuario,BorderLayout.CENTER);
 	}
+	/**
+	 * Este método cierra la ventana de donde el usuario registrará sus datos (UsuarioWindow)
+	 *  <b>post:</b> Se ha cerrado la ventana.<br>
+	 */
+	public void mostrarVentanaUsuario() {
+		setVisible(true);
+	}
+	
+	public void cerrarVentanaUsuario() {
+		dispose();
+	}
 }
