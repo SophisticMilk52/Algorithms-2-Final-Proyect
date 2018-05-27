@@ -141,6 +141,11 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		sexo.removeAll();
 		sexo.setText(d);
 	}
+	
+	public String getText() {
+		return sexo.getText();
+	}
+	
 	/**
 	 * Este método retornará un objeto de tipo Image, el cual representa el estado de la variable fondoUsuario, que decide el fondo que tendrá el panel.
 	 * <b>post:</b> Se ha retornado el objeto de tipo Image.<br>
