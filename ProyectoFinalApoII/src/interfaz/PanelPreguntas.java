@@ -156,7 +156,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		g.drawImage(Termometro.getImage(), 215, 50, this);
 		g.drawImage(mujer1.getImage(),-100, 20, this);
 		System.out.println(p.getTexto());
-	}else if(p.getTexto().equals("hemafrodita")) {
+	}else{
 		ImageIcon Termometro = new ImageIcon("gif/termometro.png");
 		System.out.println(p.getTexto());
 		ImageIcon	herma1= new ImageIcon("gif/herma.gif");
