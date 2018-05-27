@@ -17,6 +17,7 @@ public class Principal extends JFrame{
 	 */
 	private LegalWindow lw;//Relación con la clase LegalWindow
 	private PanelPreguntas pPreguntas;//Relación con la clase PanelPreguntas
+	private UsuarioWindow uw;
 	
 	public Principal() {
 		setLayout(new BorderLayout());
