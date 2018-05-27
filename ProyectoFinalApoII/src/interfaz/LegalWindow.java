@@ -19,12 +19,19 @@ public class LegalWindow extends JDialog{
 		pLegal=new PanelLegal(p);
 		setTitle("Match Icesi");
 		setSize(750,700);
-		setVisible(true);
 		setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		add(pLegal,BorderLayout.CENTER);
+	}
+	
+	public void cerrarVentanaLegal() {
+		dispose();
+	}
+	
+	public void mostrarVentanaLegal() {
+		setVisible(true);
 	}
 
 }
