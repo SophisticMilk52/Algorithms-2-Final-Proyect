@@ -77,16 +77,14 @@ public class Principal extends JFrame{
 		return lw.pLegal.uw.pUsuario.getFondoUsuario();
 	}
 	/**
-	 * Método perteneciente a la clase PanelLegal (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
+	 * Método perteneciente a la clase UsuarioWindow (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
 	 */
-	public void cerrarVentanaUsuario() {
-		lw.pLegal.cerrarVentanaUsuario();
-	}
-	
 	public void cerrarVentanaUsuario() {
 		uw.cerrarVentanaUsuario();
 	}
-	
+	/**
+	 * Método perteneciente a la clase UsuarioWindow (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
+	 */
 	public void mostrarVentanaUsuario() {
 		uw.mostrarVentanaUsuario();
 	}
