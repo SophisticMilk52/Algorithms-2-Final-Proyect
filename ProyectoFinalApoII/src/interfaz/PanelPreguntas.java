@@ -26,7 +26,10 @@ public class PanelPreguntas extends JPanel implements ActionListener{
   public PanelPreguntas(Principal p){
     this.p=p;
     
-    setLayout(new GridBagLayout());
+   setLayout(new GridLayout(1,3));
+
+	JPanel aux= new JPanel();
+	aux.setLayout(new GridBagLayout());
 		
 		JLabel l1=new JLabel();
 		JLabel l2=new JLabel();
@@ -55,7 +58,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		gbc.weightx=1.0;
 		gbc.weighty=1.0;
 		gbc.fill=GridBagConstraints.BOTH;
-		add(pregunta,gbc);
+		aux.add(pregunta,gbc);
 		
 		gbc.gridx=0;
 		gbc.gridy=4;
@@ -64,7 +67,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		gbc.weightx=1.0;
 		gbc.weighty=1.0;
 		gbc.fill=GridBagConstraints.BOTH;
-		add(l1,gbc);
+		aux.add(l1,gbc);
 		
 		gbc.gridx=4;
 		gbc.gridy=4;
@@ -73,7 +76,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		gbc.weightx=1.0;
 		gbc.weighty=1.0;
 		gbc.fill=GridBagConstraints.BOTH;
-		add(l2,gbc);
+		aux.add(l2,gbc);
 		
 		gbc.gridx=1;
 		gbc.gridy=4;
@@ -82,7 +85,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		gbc.weightx=1.0;
 		gbc.weighty=1.0;
 		gbc.fill=GridBagConstraints.BOTH;
-		add(l3,gbc);
+		aux.add(l3,gbc);
 		
 		gbc.gridx=1;
 		gbc.gridy=6;
@@ -91,7 +94,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		gbc.weightx=1.0;
 		gbc.weighty=1.0;
 		gbc.fill=GridBagConstraints.BOTH;
-		add(respuestas,gbc);
+		aux.add(respuestas,gbc);
 		
 		gbc.gridx=0;
 		gbc.gridy=8;
@@ -100,7 +103,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		gbc.weightx=1.0;
 		gbc.weighty=1.0;
 		gbc.fill=GridBagConstraints.BOTH;
-		add(l4,gbc);
+		aux.add(l4,gbc);
 		
 		gbc.gridx=2;
 		gbc.gridy=10;
@@ -110,7 +113,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		gbc.weighty=1.0;
 		gbc.fill=GridBagConstraints.NONE;
 		gbc.anchor=GridBagConstraints.EAST;
-		add(siguiente,gbc);
+		aux.add(siguiente,gbc);
 		
 		gbc.gridx=1;
 		gbc.gridy=12;
@@ -119,7 +122,13 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		gbc.weightx=1.0;
 		gbc.weighty=1.0;
 		gbc.fill=GridBagConstraints.BOTH;
-		add(l5,gbc);
+		aux.add(l5,gbc);
+	  
+	  	JLabel lo= new JLabel();
+		JLabel la= new JLabel();
+		add(la);
+		add(aux);
+		add(lo);
   }
   
   @Override
@@ -131,5 +140,27 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 	g.drawImage(p.getFondoUsuario(),0,0,getWidth(),getHeight(),this);
 	setOpaque(false);
 	super.paint(g);
+	if(p.getTexto().equals("masculino")) {
+		ImageIcon Termometro = new ImageIcon("gif/termometro.png");
+		ImageIcon	hombre1= new ImageIcon("gif/hombre gif1.gif");
+		ImageIcon	hombre2= new ImageIcon("gif/hombre gif2.gif");
+		g.drawImage(Termometro.getImage(), 215, 50, this);
+		g.drawImage(hombre1.getImage(), 20, 0, this);
+		g.drawImage(hombre2.getImage(),-80, 250, this);
+	}else if(p.getTexto().equals("femenino")) {
+		ImageIcon Termometro = new ImageIcon("gif/termometro.png");
+		ImageIcon	mujer1= new ImageIcon("gif/mujer gif1.gif");
+		
+		g.drawImage(Termometro.getImage(), 215, 50, this);
+		g.drawImage(mujer1.getImage(),-100, 20, this);
+		System.out.println(p.getTexto());
+	}else if(p.getTexto().equals("hemafrodita")) {
+		ImageIcon Termometro = new ImageIcon("gif/termometro.png");
+		System.out.println(p.getTexto());
+		ImageIcon	herma1= new ImageIcon("gif/herma.gif");
+		g.drawImage(herma1.getImage(), 0, 200, this);
+		g.drawImage(Termometro.getImage(), 215, 50, this);
+		System.out.println(p.getTexto());
+	}
   }
 }
