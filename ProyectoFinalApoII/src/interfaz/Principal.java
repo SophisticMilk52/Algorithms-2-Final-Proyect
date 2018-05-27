@@ -30,6 +30,9 @@ public class Principal extends JFrame{
 		
 		pPreguntas=new PanelPreguntas(this);
 		lw=new LegalWindow(this);
+		uw=new UsuarioWindow(this);
+		
+		lw.mostrarVentanaLegal();
 		
 		add(pPreguntas,BorderLayout.CENTER);;
 	}
@@ -45,8 +48,8 @@ public class Principal extends JFrame{
 		Principal p = new Principal();
 	}
 	
-	public void cerrarLegalWindow() {
-		lw.dispose();
+	public void cerrarVentanaLegal() {
+		lw.cerrarVentanaLegal();
 	}
 	/**	
 	 * Este método cierra la ventana principal y termina sus procesos.
@@ -59,8 +62,13 @@ public class Principal extends JFrame{
 	 * Método perteneciente a la clase PanelUsuario (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
 	 */
 	public void setTextSexo(String d) {
-		lw.pLegal.uw.pUsuario.setTextSexo(d);
+		uw.pUsuario.setTextSexo(d);
 	}
+	
+	public String  getTexto() {
+		return uw.pUsuario.getText();
+	}
+	
 	/**
 	 * Método perteneciente a la clase PanelUsuario (vease en dicha clase para su contrato). Se traslada a "Principal" con el fin de que la clase diferente que lo requiera. lo utilice facilmente
 	 */
@@ -72,6 +80,14 @@ public class Principal extends JFrame{
 	 */
 	public void cerrarVentanaUsuario() {
 		lw.pLegal.cerrarVentanaUsuario();
+	}
+	
+	public void cerrarVentanaUsuario() {
+		uw.cerrarVentanaUsuario();
+	}
+	
+	public void mostrarVentanaUsuario() {
+		uw.mostrarVentanaUsuario();
 	}
 	
 }
