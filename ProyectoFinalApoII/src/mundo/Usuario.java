@@ -1,10 +1,16 @@
 package mundo;
 
 import java.io.*;
+import java.util.ArrayList;
 
-public abstract class Usuario implements Comparable<Usuario>, Serializable{
+public abstract class Usuario implements Comparable<Usuario>, Serializable, Icontable, IEmparejable{
 	
-	//CONSTANTES
+	//RELACIONES//
+	private Usuario derecho;
+	private Usuario izquierdo;
+	private Usuario pareja;
+	
+	//CONSTANTES//
 	public static final char RESPONDE_A='A';
 	public static final char RESPONDE_B='B';
 	public static final char RESPONDE_C='C';
@@ -13,8 +19,8 @@ public abstract class Usuario implements Comparable<Usuario>, Serializable{
 	public static final String HOMO="Homo Sexual";
 	public static final String BI="Bisexual";
 	
-	//ATRIBUTOS
-	private int aciertos;
+	//ATRIBUTOS//
+	private int coincidencias;
 	private int popularidad;
 	private char priPregunta;
 	private char segPregunta;
@@ -41,7 +47,7 @@ public abstract class Usuario implements Comparable<Usuario>, Serializable{
 			char octPregunta, char novPregunta, char decPregunta, String foto, 
 			String nombre, String genero, String idSexual, String carrera, 
 			double altura, int edad, int semestre) {
-		this.aciertos = 0;
+		this.coincidencias =0;
 		this.popularidad = 0;
 		this.priPregunta = priPregunta;
 		this.segPregunta = segPregunta;
@@ -63,12 +69,20 @@ public abstract class Usuario implements Comparable<Usuario>, Serializable{
 		this.semestre = semestre;
 	}
 
-	public int getAciertos() {
-		return aciertos;
+	public Usuario getDerecho() {
+		return derecho;
 	}
 
-	public void setAciertos(int aciertos) {
-		this.aciertos = aciertos;
+	public void setDerecho(Usuario derecho) {
+		this.derecho = derecho;
+	}
+
+	public Usuario getIzquierdo() {
+		return izquierdo;
+	}
+
+	public void setIzquierdo(Usuario izquierdo) {
+		this.izquierdo = izquierdo;
 	}
 
 	public int getPopularidad() {
@@ -226,7 +240,48 @@ public abstract class Usuario implements Comparable<Usuario>, Serializable{
 	@Override
 	public int compareTo(Usuario user) {
 		int cantidadDeAciertos = 0;
-		
+		if(priPregunta==user.getPriPregunta()) {
+			cantidadDeAciertos++;
+		}
+		if(segPregunta==user.getSegPregunta()) {
+			cantidadDeAciertos++;
+		}
+		if(terPregunta==user.getTerPregunta()) {
+			cantidadDeAciertos++;
+		}
+		if(cuarPregunta==user.getCuarPregunta()) {
+			cantidadDeAciertos++;
+		}
+		if(quinPregunta==user.getQuinPregunta()) {
+			cantidadDeAciertos++;
+		}
+		if(sexPregunta==user.getSexPregunta()) {
+			cantidadDeAciertos++;
+		}
+		if(sepPregunta==user.getPriPregunta()) {
+			cantidadDeAciertos++;
+		}
+		if(octPregunta==user.getOctPregunta()) {
+			cantidadDeAciertos++;
+		}
+		if(novPregunta==user.getNovPregunta()) {
+			cantidadDeAciertos++;
+		}
+		if(decPregunta==user.getDecPregunta()) {
+			cantidadDeAciertos++;
+		}
 		return cantidadDeAciertos;	
+	}
+	
+	@Override
+	public int contar() {
+		int valor = 1;
+		if(derecho!=null) {
+			valor += derecho.contar();
+		}
+		if(izquierdo!=null) {
+			valor += izquierdo.contar();
+		}
+		return valor;
 	}
 }
