@@ -20,6 +20,7 @@ import excepciones.SexualidadException;
 import excepciones.SolitarioException;
 import hilos.Popularinometro;
 
+
 /**
  * Clase que representa a la aplicación IcesiMatch
  */
@@ -207,7 +208,37 @@ public class IcesiMatch implements Comparator<Usuario>{
 	 */
 	public void guardar() {
 		try {
-			
+			this.resetear();
+			this.AgregarActual();
+			FileOutputStream fileOutS = null;
+			ObjectOutputStream salida = null;
+			Usuario laPersona = null;
+
+			try {
+
+				fileOutS = new FileOutputStream("archivos/archivos/" + raiz.getNombre() + ".dat");
+				salida = new ObjectOutputStream(fileOutS);
+				
+				laPersona.agregarUsuario(raiz);
+			//	= new Usuario(raiz.getPriPregunta(),raiz.getSegPregunta(),raiz.getTerPregunta(),raiz.getCuarPregunta(),raiz.getQuinPregunta(),raiz.getSexPregunta(),raiz.getSepPregunta(),raiz.getOctPregunta(),raiz.getNovPregunta(),raiz.getDecPregunta(),raiz.getFoto(), raiz.getNombre(),raiz.getGenero(),raiz.getIdSexual(),raiz.getCarrera(),raiz.getAltura(),raiz.getEdad(),raiz.getSemestre());
+				salida.writeObject(laPersona);
+
+				
+				
+			} catch (FileNotFoundException e) {
+				System.out.println(e.getMessage());
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			} finally {
+				try {
+					if (laPersona != null)
+						fileOutS.close();
+					if (salida != null)
+						salida.close();
+				} catch (IOException e) {
+					System.out.println(e.getMessage());
+				}
+			}
 		} catch (Exception e) {
 			
 		}	
