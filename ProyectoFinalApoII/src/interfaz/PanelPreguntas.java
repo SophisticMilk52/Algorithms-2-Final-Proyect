@@ -7,6 +7,8 @@ import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
 import java.awt.Color;
@@ -15,10 +17,10 @@ import java.awt.GridBagConstraints;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 
-public class PanelPreguntas extends JPanel implements ActionListener{
+public class PanelPreguntas extends JPanel implements ActionListener, MouseListener{
   
   public static final String SIG="siguiente";
-	
+
 	private JButton siguiente;
 	private JLabel pregunta;
 	private JComboBox<String> respuestas;
@@ -27,7 +29,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
   
   public PanelPreguntas(Principal p){
     this.p=p;
-    
+    this.addMouseListener(this);
    setLayout(new GridLayout(1,3));
 
 	JPanel aux= new JPanel();
@@ -165,4 +167,34 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		System.out.println(p.getTexto());
 	}
   }
+  @Override
+  public void mouseClicked(MouseEvent e) {
+  	System.out.println(e.getX()+" "+ e.getY());
+  }
+
+  @Override
+  public void mouseEntered(MouseEvent e) {
+  	// TODO Auto-generated method stub
+  	
+  }
+
+  @Override
+  public void mouseExited(MouseEvent e) {
+  	// TODO Auto-generated method stub
+  	
+  }
+
+  @Override
+  public void mousePressed(MouseEvent e) {
+  	// TODO Auto-generated method stub
+  	
+  }
+
+  @Override
+  public void mouseReleased(MouseEvent e) {
+  
+  	
+  }
 }
+
+

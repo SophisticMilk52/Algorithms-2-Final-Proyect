@@ -14,7 +14,9 @@ import java.io.*;
 import java.util.*;
 
 import excepciones.PopularException;
+
 import excepciones.SexualidadException;
+
 import excepciones.SolitarioException;
 
 /**
@@ -32,6 +34,11 @@ public class IcesiMatch implements Comparator<Usuario>{
 	 * Relacion que representa la lista de usuarios
 	 */
 	private Pregunta inicio;
+	
+	/**
+	 * Relacion que respresenta el cuadro que se mueve pro el termometro
+	 */
+	private Cuadrito paraTermometro;
 	
 	//CONSTANTES//
 	/**
@@ -310,6 +317,10 @@ public class IcesiMatch implements Comparator<Usuario>{
 		if(raiz!=null) {
 			raiz.reseteador();
 		}
+	}
+	
+	public void popularidad() {
+		
 	}
 	@Override
 	/**
