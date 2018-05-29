@@ -330,6 +330,8 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		if(comando.equals((ACEPTAR))) {
 			p.setVisible(true);
 			p.cerrarVentanaUsuario();
+			p.insertarPregunta();
+			p.insertarRespuestas();
 		}else if( a.getActionCommand().equals(SELECC)) {
 			this.choser();
 	
