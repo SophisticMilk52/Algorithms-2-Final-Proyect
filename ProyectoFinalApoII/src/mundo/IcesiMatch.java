@@ -18,6 +18,7 @@ import excepciones.PopularException;
 import excepciones.SexualidadException;
 
 import excepciones.SolitarioException;
+import hilos.Popularinometro;
 
 /**
  * Clase que representa a la aplicación IcesiMatch
@@ -301,6 +302,10 @@ public class IcesiMatch implements Comparator<Usuario>{
 			actual.setDecPregunta(responde);
 			
 		}
+		Popularinometro p = new Popularinometro(this, cual);
+		p.run();
+		
+		
 	}
 	
 	//------------------//
@@ -310,6 +315,7 @@ public class IcesiMatch implements Comparator<Usuario>{
 		}else {
 			raiz = actual;
 		}
+		cantidad++;
 	}
 	
 	//------------------//
@@ -319,8 +325,15 @@ public class IcesiMatch implements Comparator<Usuario>{
 		}
 	}
 	
-	public void popularidad() {
-		
+	//-------------------//
+	public void popularidad(int cual, Usuario actual) {
+		int pop = 0;
+		if(raiz!=null) {
+			pop+= raiz.popularidad(cual, actual);
+			if(pop>cantidad/2) {
+				actual.setPopularidad(actual.getPopularidad()+1);
+			}
+		}
 	}
 	@Override
 	/**

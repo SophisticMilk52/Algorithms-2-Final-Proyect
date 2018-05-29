@@ -30,7 +30,9 @@ public class Cuadrito {
 		this.y = y;
 	}
 	
-	public void moverse() {
-		y+=24.4;
+	public void moverse(int p) {
+		if(p!=0) {
+			y = (int) (336+(p*24.4));
+		}
 	}
 }

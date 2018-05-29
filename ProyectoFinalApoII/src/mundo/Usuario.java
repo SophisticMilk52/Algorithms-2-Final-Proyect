@@ -671,6 +671,67 @@ public abstract class Usuario implements Comparable<Usuario>, Comparator<Usuario
 		}
 	}
 	
+	public int popularidad(int cual, Usuario actual) {
+		int retorno = 0;
+		if(cual==1) {
+			if(actual.getPriPregunta()==priPregunta) {
+				retorno++;
+			}
+		}
+		if(cual==2) {
+			if(actual.getSegPregunta()==segPregunta) {
+				retorno++;
+			}		
+		}
+		if(cual==3) {
+			if(actual.getTerPregunta()==terPregunta) {
+				retorno++;
+			}
+		}
+		if(cual==4) {
+			if(actual.getCuarPregunta()==cuarPregunta) {
+				retorno++;
+			}
+		}
+		if(cual==5) {
+			if(actual.getQuinPregunta()==quinPregunta) {
+				retorno++;
+			}
+		}
+		if(cual==6) {
+			if(actual.getSexPregunta()==sexPregunta) {
+				retorno++;
+			}
+		}
+		if(cual==7) {
+			if(actual.getSepPregunta()==sepPregunta) {
+				retorno++;
+			}
+		}
+		if(cual==8) {
+			if(actual.getOctPregunta()==octPregunta) {
+				retorno++;
+			}
+		}
+		if(cual==9) {
+			if(actual.getNovPregunta()==novPregunta) {
+				retorno++;
+			}
+		}
+		if(cual==10) {
+			if(actual.getDecPregunta()==decPregunta) {
+				retorno++;
+			}
+		}
+		if(derecho!=null) {
+			retorno += derecho.popularidad(cual, actual);
+		}
+		if(izquierdo!=null) {
+			retorno += izquierdo.popularidad(cual, actual);
+		}
+		return retorno;
+	} 
+	
 	@Override
 	public int compareTo(Usuario user) {
 		int cantidadDeAciertos = 0;
