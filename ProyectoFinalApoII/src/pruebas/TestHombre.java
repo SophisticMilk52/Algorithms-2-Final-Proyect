@@ -79,5 +79,6 @@ class TestHombre extends TestCase {
 		}finally {
 			assertNull(elHombre.getPareja());
 		}
+		
 	}
 }
