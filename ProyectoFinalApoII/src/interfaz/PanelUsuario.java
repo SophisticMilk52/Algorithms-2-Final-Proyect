@@ -36,13 +36,13 @@ public class PanelUsuario extends JPanel implements ActionListener{
   private JPanel pAuxFoto,pDatos;
   private JComboBox box;
   private Principal p;//Relación con la clase Principal
-	
+
 	private JFileChooser file;
 	private File archivo;
 	private String nombrearchivo;
 	private String rutaimagen;
 	private ImageIcon icono;
-	
+
   public PanelUsuario(Principal p) {
 		this.p=p;
 		setLayout(new BorderLayout());
@@ -157,7 +157,6 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		return fondoUsuario;
 	}
 	public void choser() {
-		JLfotoMarco= new JLabel();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(	
 				"JPG & GIF Images", "jpg", "gif","png","jpeg");
 		file=new JFileChooser("avatar");
@@ -201,6 +200,7 @@ public class PanelUsuario extends JPanel implements ActionListener{
 			p.cerrarVentanaUsuario();
 		}else if( a.getActionCommand().equals(SELECC)) {
 			this.choser();
+	
 		}
 	}
   

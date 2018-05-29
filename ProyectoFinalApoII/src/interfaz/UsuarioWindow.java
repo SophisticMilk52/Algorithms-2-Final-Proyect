@@ -33,4 +33,8 @@ public class UsuarioWindow extends JDialog{
 	public void cerrarVentanaUsuario() {
 		dispose();
 	}
+	public void refrescar() {
+		pUsuario.repaint();
+		pUsuario.revalidate();
+	}
 }
