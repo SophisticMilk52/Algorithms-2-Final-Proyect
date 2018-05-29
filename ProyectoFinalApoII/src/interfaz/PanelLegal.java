@@ -22,31 +22,78 @@ import javax.swing.JButton;
  */
 public class PanelLegal extends JPanel implements ActionListener{
 	
+	//CONSTANTES//
 	/**
-	 * Constantes
+	 * Costante que representa la ruta el caso en el que el usuario este de acuerdo con el contrato o terminos del programa
 	 */
 	public static final String DE_ACUERDO="yes";
+	/**
+	 * Costante que representa la ruta el caso en el que el usuario este desacuerdo con el contrato o terminos del programa
+	 */
 	public static final String DESACUERDO="no";
+	/**
+	 * Costante que representa el sexo masculino
+	 */
 	public static final String MASC="masculino";
+	/**
+	 * Costante que representa el sexo femenino
+	 */
 	public static final String FEMEN="femenino";
+	/**
+	 * Costante que representa al hemafrodita
+	 */
 	public static final String HEMA="hemafrodita";
 	
-	/**
-	 * Variables privadas
-	 */
-	private JButton BTdeAcuerdo;//Variable de tipo JButton. Representa el botón con el que el usuario estará de acuerdo con los terminos del softwareen en caso de oprimirlo
-	private JButton BTdesacuerdo;//Variable de tipo JButton. Representa el botón con el que el usuario estará desacuerdo con los terminos del softwareen en caso de oprimirlo
-	private JTextPane JTcontrato;//Variable de tipo JTextPane. Representa el espacio donde estarán escritos los terminos del software
-	private Image fondo;//Variable de tipo Image. Representa el fondo que tendrá el panel
-	private JLabel JLlogo;//Variable de tipo JLabel. Representra el logo en el panel
-	private JButton BTmasculino,BTfemenino,BThema;
 	
+	//VARIABLES PRIVADAS//
 	/**
-	 * Relaciones entre clases
+	 * Variable de tipo JButton. Representa el botón con el que el usuario estará de acuerdo con los terminos del softwareen en caso de oprimirlo
 	 */
-	private Principal p;//Relación con la clase Principal 
-	public UsuarioWindow uw;//Relación con la clase UsuarioWindow
+	private JButton BTdeAcuerdo;
+	/**
+	 * Variable de tipo JButton. Representa el botón con el que el usuario estará desacuerdo con los terminos del softwareen en caso de oprimirlo
+	 */
+	private JButton BTdesacuerdo;
+	/**
+	 * Variable de tipo JTextPane. Representa el espacio donde estarán escritos los terminos del software
+	 */
+	private JTextPane JTcontrato;
+	/**
+	 *Variable de tipo Image. Representa el fondo que tendrá el panel 
+	 */
+	private Image fondo;
+	/**
+	 * Variable de tipo JLabel. Representra el logo en el panel
+	 */
+	private JLabel JLlogo;
+	/**
+	 * Variable de tipo JButton. Representa la opción de quien se considere del sexo masculino
+	 */
+	private JButton BTmasculino;
+	/**
+	 * Variable de tipo JButton. Representa la opcion de quien se considere del sexo femenino
+	 */
+	private JButton BTfemenino;
+	/**
+	 * Variable de tipo JButton. Representa la opcion de quien se considere hemafrodita
+	 */
+	private JButton BThema;
 	
+	//RELACIONES ENTRE CLASES
+	/**
+	 * Relación con la clase Principal 
+	 */
+	private Principal p;
+	/**
+	 * Relación con la clase UsuarioWindow
+	 */
+	public UsuarioWindow uw;
+	
+	//CONSTRUCTOR//
+	/**
+	 * constructor de la clase PanelLegal
+	 * @param p objeto de tipo Principal que sirve como conexion a la clase Principal
+	 */
 	public PanelLegal(Principal p) {
 		this.p=p;
 		
