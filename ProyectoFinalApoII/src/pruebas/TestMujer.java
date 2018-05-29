@@ -36,6 +36,9 @@ class TestMujer extends TestCase {
 	}
 	
 	//TEST//
+	/**
+	 * Metodo que crea el escenario con el que se va a probar la clase
+	 */
 	@Test
 	public void testEmparejar1(){
 		escenario();

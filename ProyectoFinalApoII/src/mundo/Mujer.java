@@ -19,7 +19,6 @@ public class Mujer extends Usuario{
 		super(priPregunta, segPregunta, triPregunta, cuartPregunta, quinPregunta, sexPregunta, sepPregunta,
 				octPregunta, novPregunta, decPregunta, foto, nombre, MUJER, idSexual, carrera, altura, edad, semestre);
 	}
-
 	
 	@Override
 	public void emparejar(Usuario pareja) throws PopularException, SexualidadException, SolitarioException, NullPointerException {
