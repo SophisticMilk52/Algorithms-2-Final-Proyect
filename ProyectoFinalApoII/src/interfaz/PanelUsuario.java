@@ -34,7 +34,7 @@ public class PanelUsuario extends JPanel implements ActionListener{
   private JButton JBseleccionar,JBaceptar;
   private Image fondoUsuario;
   private JPanel pAuxFoto,pDatos;
-private JComboBox box;
+  private JComboBox box;
   private Principal p;//Relación con la clase Principal
 	
 	private JFileChooser file;
@@ -45,13 +45,12 @@ private JComboBox box;
 	
   public PanelUsuario(Principal p) {
 		this.p=p;
-
 		setLayout(new BorderLayout());
-	
 		pAuxFoto=new JPanel();
 		pAuxFoto.setLayout(new GridLayout(1,2));
 		pAuxFoto.setOpaque(false);
 		pAuxFoto.setPreferredSize(new Dimension(200,300));
+	
 		pDatos=new JPanel();
 		pDatos.setLayout(new GridLayout(7,2));
 		pDatos.setOpaque(false);
@@ -108,8 +107,9 @@ private JComboBox box;
 		pDatos.add(JTsemestre);
 		JLfotoMarco=new JLabel();
 		JLfotoMarco.setSize(220,250);
+		
 		Image imagen=new ImageIcon("images/foto.jpg").getImage();
-		 icono=new ImageIcon(imagen.getScaledInstance(JLfotoMarco.getWidth(),JLfotoMarco.getHeight(),Image.SCALE_DEFAULT));
+		icono=new ImageIcon(imagen.getScaledInstance(JLfotoMarco.getWidth(),JLfotoMarco.getHeight(),Image.SCALE_DEFAULT));
 		JLfotoMarco.setIcon(icono);
 	  
 		JLabel l1=new JLabel();
@@ -158,17 +158,18 @@ private JComboBox box;
 	}
 	public void choser() {
 		JLfotoMarco= new JLabel();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter(
-			
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(	
 				"JPG & GIF Images", "jpg", "gif","png","jpeg");
-JFileChooser		file=new JFileChooser("avatar");
+		file=new JFileChooser("avatar");
 		file.setFileFilter(filter);
 		int returnVal = file.showOpenDialog(this);
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 			 archivo=file.getSelectedFile();
 			modificarNombreArchivo(archivo.getName());
+			System.out.println(archivo.getName());
 			String ruta= archivo.getParent();
 			rutaimagen=ruta+"/"+this.getNombrearchivo();
+			System.out.println(rutaimagen);
 			ImageIcon img= new ImageIcon(rutaimagen);
 			int w= img.getIconWidth();
 			int h=img.getIconHeight();
@@ -182,7 +183,9 @@ JFileChooser		file=new JFileChooser("avatar");
 		return rutaimagen;
 	}
 	
-	
+	public void setNombrearchivo(String nombrearchivo) {
+		this.nombrearchivo = nombrearchivo;
+	}
 	public String getNombrearchivo() {
 		return nombrearchivo;
 	}
