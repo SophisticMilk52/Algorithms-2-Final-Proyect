@@ -20,38 +20,136 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 public class PanelUsuario extends JPanel implements ActionListener{
-  
 
+  //CONSTANTES//	
+  /**
+   * constante que representa la opcion de seleccionar
+   */
   public static final String SELECC="seleccionar";
+  /**
+   * constante que representa la opcion de aceptar
+   */
   public static final String ACEPTAR="aceptar";
+  /**
+   * constante que representa la ruta del la imagen del fondo para el sexo masculino
+   */
   public static final String FONDO_MASCULINO="images/fondoMasculino.png";
+  /**
+   * constante que representa la ruta del la imagen del fondo para el sexo femenino
+   */
   public static final String FONDO_FEMENINO="images/fondoFemenino.png";
+  /**
+   * constante que representa la ruta del la imagen del fondo para los hemafroditas
+   */
   public static final String FONDO_HEMA="images/fondoLegal.png";
 
-
-  private JLabel JLnombre,JLidSexual,JLcarrera,JLaltura,JLedad,JLsemestre,JLfoto,sexo,JLfotoMarco;
-  private JTextField JTnombre,JTcarrera,JTaltura,JTedad,JTsemestre;
-  private JButton JBseleccionar,JBaceptar;
+  //VARIABLES PRIVADAS//
+  
+/*
+  private JLabel JLnombre;
+ 
+  private JLabel JLidSexual;
+ 
+  private JLabel JLcarrera;
+  
+  private JLabel JLaltura;
+ 
+  private JLabel JLedad;
+  
+  private JLabel JLsemestre;
+  
+  private JLabel JLfoto;*/
+  
+  /**
+   * Varible de tipo JLabel. Representa el sexo que ha elegido el usuario
+   */
+  private JLabel sexo;
+  /**
+   * Variable de tipo Jlabel. Representa el contendor de la imagen que el usuario elija como su avatar
+   */
+  private JLabel JLfotoMarco;
+  /**
+   * Variable de tipo JTextField. Representa el espacio donde el usuario podrá digitar su nombre
+   */
+  private JTextField JTnombre;
+  /**
+   * Variable de tipo JTextField. Representa el espacio donde el usuario podrá digitar su carrera
+   */
+  private JTextField JTcarrera;
+  /**
+   * Variable de tipo JTextField. Representa el espacio donde el usuario podrá digitar su altura
+   */
+  private JTextField JTaltura;
+  /**
+   * Variable de tipo JTextField. Representa el espacio donde el usuario podrá digitar su edad
+   */
+  private JTextField JTedad;
+  /**
+   * Variable de tipo JTextField. Representa el espacio donde el usuario podrá digitar su semestre
+   */
+  private JTextField JTsemestre;
+  /**
+   * Varible de tipo JButton. Representa el boton que le dara la opcion al usuario de escojer la imagen para su avatar
+   */
+  private JButton JBseleccionar;
+  /**
+   * Variable de tipo JButton. Representa el boton que le dara la opcion al usuario de registrar su informacion y continuar con la siguiente fase del programa (la encuesta)
+   */
+  private JButton  JBaceptar;
+  /**
+   * Variable de tipo Image. Representa la imagen de fondo que tendra la ventana
+   */
   private Image fondoUsuario;
-  private JPanel pAuxFoto,pDatos;
+  /*
+  private JPanel pAuxFoto;
+ 
+  private JPanel  pDatos;*/
+  
+  /**
+   * Variable de tipo JComboBox. Representa las opciones que tiene el usuario en cuanto a orientacion sexual
+   */
   private JComboBox box;
-  private Principal p;//Relación con la clase Principal
-
-	private JFileChooser file;
-	private File archivo;
-	private String nombrearchivo;
-	private String rutaimagen;
-	private ImageIcon icono;
-
+  /**
+   * 
+   */
+  private JFileChooser file;
+  /**
+   * Variable de tipo File. Representa el archivo (imagen) que el usuario seleccionó para su avatar
+   */
+  private File archivo;
+  /**
+   * Variable de tipo String. Representa el nombre del archivo (imagen) seleccionado por el usuario
+   */
+  private String nombrearchivo;
+  /**
+   * Variable de tipo String. Representa la ruta del archivo (imagen) seleccionado por el usuario
+   */
+  private String rutaimagen;
+  /**
+   * Variable de tipo ImageIcon. Representa el icono que representa al programa
+   */
+  private ImageIcon icono;
+	
+  //RELACIONES ENTRE CLASES//
+  /**
+   * Relación con la clase Principal
+   */
+  private Principal p;
+  
+  //CONSTRUCTOR//
+  /**
+   * constructor de la clase PanelUsuario
+   * @param p objeto de tipo Principal que sirve como conexion a la clase Principal
+   */
   public PanelUsuario(Principal p) {
 		this.p=p;
 		setLayout(new BorderLayout());
-		pAuxFoto=new JPanel();
+		JPanel pAuxFoto=new JPanel();
 		pAuxFoto.setLayout(new GridLayout(1,2));
 		pAuxFoto.setOpaque(false);
 		pAuxFoto.setPreferredSize(new Dimension(200,300));
 	
-		pDatos=new JPanel();
+		JPanel pDatos=new JPanel();
 		pDatos.setLayout(new GridLayout(7,2));
 		pDatos.setOpaque(false);
 		
@@ -64,13 +162,13 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		pDatos.setOpaque(false);
 		pDatos.setSize(400,700);
 		
-		JLfoto=new JLabel("Foto: ");
-		JLnombre=new JLabel("Nombre: ");
-		JLidSexual=new JLabel("Orientacion sexual: ");
-		JLcarrera=new JLabel("Carrera: ");
-		JLaltura=new JLabel("Altura: ");
-		JLedad=new JLabel("Edad: ");
-		JLsemestre=new JLabel("Semestre");
+		JLabel JLfoto=new JLabel("Foto: ");
+		JLabel JLnombre=new JLabel("Nombre: ");
+		JLabel JLidSexual=new JLabel("Orientacion sexual: ");
+		JLabel JLcarrera=new JLabel("Carrera: ");
+		JLabel JLaltura=new JLabel("Altura: ");
+		JLabel JLedad=new JLabel("Edad: ");
+		JLabel JLsemestre=new JLabel("Semestre");
 		sexo=new JLabel();
 		
 		JTnombre=new JTextField();
@@ -123,6 +221,7 @@ public class PanelUsuario extends JPanel implements ActionListener{
 	}
 	/**
 	 * Este método decide el fondo de la ventana del usuario (PanelUsuario) según el sexo que éste haya elegido en la ventana anterior (LegalWindow).
+	 * 	<b>pre:</b> el atributo JLabel sexo, esta inicializado.<br>
 	 *  <b>post:</b> Se ha decidido el fondo  y se ha puesto en la ventana.<br>
 	 */
 	public void decidirFondo() {
@@ -137,6 +236,7 @@ public class PanelUsuario extends JPanel implements ActionListener{
 	 * Este método obtendrá por parámetro el sexo seleccionado por el usuario en la "ventanaSexo" (vease el método mostrarVentanaSexo en la clase PanelLegal) y lo pondrá en la variable "sexo" con el fin ésta siva como
 	 * identificador para decidir el fondo en el método "decidirFondo".
 	 * @param sexoS Es el sexo seleccionado por el usuario. De tipo String. sexoS != " ".
+	 * <b>pre:</b> el atributo JLabel sexo, esta inicializado.<br>
 	 * <b>post:</b> Se ha cambiado el valor de la variable "sexo".<br>
 	 */
 	public void setTextSexo(String d) {
@@ -144,6 +244,12 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		sexo.setText(d);
 	}
 	
+	/**
+	 * Este metodo devuelve el contenido (texto) que tiene la variable sexo
+	 * <b>pre:</b> el atributo JLabel sexo esta inicializado.<br>
+	 * <b>post:</b> se ha obtenido el contenido de la variable sexo.<br>
+	 * @return devuelve un String (texto) que representa el contenido de la variable sexo
+	 */
 	public String getText() {
 		return sexo.getText();
 	}
@@ -156,6 +262,10 @@ public class PanelUsuario extends JPanel implements ActionListener{
 	public Image getFondoUsuario() {
 		return fondoUsuario;
 	}
+	
+	/**
+	 * 
+	 */
 	public void choser() {
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(	
 				"JPG & GIF Images", "jpg", "gif","png","jpeg");
@@ -177,17 +287,39 @@ public class PanelUsuario extends JPanel implements ActionListener{
 			this.JLfotoMarco.setSize(w, h);
 		}
 	}
-
+	
+	/**
+	 * Este metodo devuelve el valor (texto) de la variable rutaImagen
+	 * <b>pre:</b> el atributo rutaImagen esta inicializado.<br>
+	 * <b>post:</b> se ha obtenido el contenido de la variable rutaImagen.<br>
+	 * @return devuelve un String (texto) que representa el contenido de la variable rutaImagen
+	 */
 	public String darRutaImagen() {
 		return rutaimagen;
 	}
 	
+	/**
+	 * 
+	 * @param nombrearchivo
+	 */
 	public void setNombrearchivo(String nombrearchivo) {
 		this.nombrearchivo = nombrearchivo;
 	}
+	
+	/**
+	 * Este metodo devuelve el valor (texto) de la variable nombreArchivo
+	 * <b>pre:</b> el atributo nombreArchivo esta inicializado.<br>
+	 * <b>post:</b> se ha obtenido el contenido de la variable nombreArchivo.<br>
+	 * @return devuelve un String (texto) que representa el contenido de la variable nombreArchivo
+	 */
 	public String getNombrearchivo() {
 		return nombrearchivo;
 	}
+	
+	/**
+	 * Este metodo modifica el nombre del archivo 
+	 * @param nom
+	 */
 	public void modificarNombreArchivo(String nom) {
 		this.nombrearchivo=nom;
 	}
@@ -212,3 +344,4 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		super.paint(g);
 	}
 }
+
