@@ -146,14 +146,14 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		ImageIcon Termometro = new ImageIcon("gif/termometro.png");
 		ImageIcon	hombre1= new ImageIcon("gif/hombre gif1.gif");
 		ImageIcon	hombre2= new ImageIcon("gif/hombre gif2.gif");
-		g.drawImage(Termometro.getImage(), 215, 50, this);
+		g.drawImage(Termometro.getImage(), 450, 50, this);
 		g.drawImage(hombre1.getImage(), 20, 0, this);
 		g.drawImage(hombre2.getImage(),-80, 250, this);
 	}else if(p.getTexto().equals("femenino")) {
 		ImageIcon Termometro = new ImageIcon("gif/termometro.png");
 		ImageIcon	mujer1= new ImageIcon("gif/mujer gif1.gif");
 		
-		g.drawImage(Termometro.getImage(), 215, 50, this);
+		g.drawImage(Termometro.getImage(), 450, 50, this);
 		g.drawImage(mujer1.getImage(),-100, 20, this);
 		System.out.println(p.getTexto());
 	}else{
@@ -161,7 +161,7 @@ public class PanelPreguntas extends JPanel implements ActionListener{
 		System.out.println(p.getTexto());
 		ImageIcon	herma1= new ImageIcon("gif/herma.gif");
 		g.drawImage(herma1.getImage(), 0, 200, this);
-		g.drawImage(Termometro.getImage(), 215, 50, this);
+		g.drawImage(Termometro.getImage(), 450, 50, this);
 		System.out.println(p.getTexto());
 	}
   }

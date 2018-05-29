@@ -3,44 +3,45 @@ package interfaz;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-/**
- *Esta clase pretende ofrecer el diseño de la ventana donde el usuario tendrá que digitar la información que se le pida 
- */
 public class PanelUsuario extends JPanel implements ActionListener{
   
- /**
-	 * Constantes
-	 */
+
   public static final String SELECC="seleccionar";
   public static final String ACEPTAR="aceptar";
   public static final String FONDO_MASCULINO="images/fondoMasculino.png";
   public static final String FONDO_FEMENINO="images/fondoFemenino.png";
   public static final String FONDO_HEMA="images/fondoLegal.png";
 
-/**
- * Variables privadas
-*/
+
   private JLabel JLnombre,JLidSexual,JLcarrera,JLaltura,JLedad,JLsemestre,JLfoto,sexo,JLfotoMarco;
-  private JTextField JTnombre,JTidSexual,JTcarrera,JTaltura,JTedad,JTsemestre;
+  private JTextField JTnombre,JTcarrera,JTaltura,JTedad,JTsemestre;
   private JButton JBseleccionar,JBaceptar;
   private Image fondoUsuario;
   private JPanel pAuxFoto,pDatos;
-/**
- * Relaciones entre clases
-*/
+private JComboBox box;
   private Principal p;//Relación con la clase Principal
+	
+	private JFileChooser file;
+	private File archivo;
+	private String nombrearchivo;
+	private String rutaimagen;
+	private ImageIcon icono;
 	
   public PanelUsuario(Principal p) {
 		this.p=p;
@@ -54,7 +55,6 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		pDatos=new JPanel();
 		pDatos.setLayout(new GridLayout(7,2));
 		pDatos.setOpaque(false);
-		//pDatos.setSize(400,700);
 		
 		pAuxFoto=new JPanel();
 		pAuxFoto.setLayout(new GridLayout(1,2));
@@ -75,13 +75,16 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		sexo=new JLabel();
 		
 		JTnombre=new JTextField();
-		JTidSexual=new JTextField();
+		box=new JComboBox();
+		box.addItem("Bisexual");
+		box.addItem("Heterosexual");
+		box.addItem("Homosexual");
 		JTcarrera=new JTextField();
 		JTaltura= new JTextField();
 		JTedad= new JTextField();
 		JTsemestre=new JTextField();
 		
-		JBseleccionar=new JButton("Seleccionar...");
+		JBseleccionar=new JButton("Seleccionar");
 		JBseleccionar.setActionCommand(SELECC);
 		JBseleccionar.addActionListener(this);
 		JBaceptar=new JButton("Aceptar");
@@ -94,7 +97,7 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		pDatos.add(JLnombre);
 		pDatos.add(JTnombre);
 		pDatos.add(JLidSexual);
-		pDatos.add(JTidSexual);
+		pDatos.add(box);
 		pDatos.add(JLcarrera);
 		pDatos.add(JTcarrera);
 		pDatos.add(JLaltura);
@@ -103,12 +106,11 @@ public class PanelUsuario extends JPanel implements ActionListener{
 		pDatos.add(JTedad);
 		pDatos.add(JLsemestre);
 		pDatos.add(JTsemestre);
-		
 		JLfotoMarco=new JLabel();
 		JLfotoMarco.setSize(220,250);
 		Image imagen=new ImageIcon("images/foto.jpg").getImage();
-		Icon foto=new ImageIcon(imagen.getScaledInstance(JLfotoMarco.getWidth(),JLfotoMarco.getHeight(),Image.SCALE_DEFAULT));
-		JLfotoMarco.setIcon(foto);
+		 icono=new ImageIcon(imagen.getScaledInstance(JLfotoMarco.getWidth(),JLfotoMarco.getHeight(),Image.SCALE_DEFAULT));
+		JLfotoMarco.setIcon(icono);
 	  
 		JLabel l1=new JLabel();
 		
@@ -154,13 +156,48 @@ public class PanelUsuario extends JPanel implements ActionListener{
 	public Image getFondoUsuario() {
 		return fondoUsuario;
 	}
-  
+	public void choser() {
+		JLfotoMarco= new JLabel();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+			
+				"JPG & GIF Images", "jpg", "gif","png","jpeg");
+JFileChooser		file=new JFileChooser("avatar");
+		file.setFileFilter(filter);
+		int returnVal = file.showOpenDialog(this);
+		if(returnVal == JFileChooser.APPROVE_OPTION) {
+			 archivo=file.getSelectedFile();
+			modificarNombreArchivo(archivo.getName());
+			String ruta= archivo.getParent();
+			rutaimagen=ruta+"/"+this.getNombrearchivo();
+			ImageIcon img= new ImageIcon(rutaimagen);
+			int w= img.getIconWidth();
+			int h=img.getIconHeight();
+			icono = new ImageIcon(rutaimagen);
+			this.JLfotoMarco.setIcon(icono);
+			this.JLfotoMarco.setSize(w, h);
+		}
+	}
+
+	public String darRutaImagen() {
+		return rutaimagen;
+	}
+	
+	
+	public String getNombrearchivo() {
+		return nombrearchivo;
+	}
+	public void modificarNombreArchivo(String nom) {
+		this.nombrearchivo=nom;
+	}
+
   @Override
 	public void actionPerformed(ActionEvent a) {
 		String comando=a.getActionCommand();
 		if(comando.equals((ACEPTAR))) {
 			p.setVisible(true);
 			p.cerrarVentanaUsuario();
+		}else if( a.getActionCommand().equals(SELECC)) {
+			this.choser();
 		}
 	}
   
