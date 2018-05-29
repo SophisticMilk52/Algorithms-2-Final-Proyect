@@ -13,6 +13,7 @@ package mundo;
  * Clase que representa una pregunta de MatchIcesi
  */
 public class Pregunta {
+	
 	//RELACIONES//
 	/**
 	 * Relacion que representa a la siguiente pregunta
@@ -24,11 +25,11 @@ public class Pregunta {
 	 * Atributo que representa el texto de la pregunta
 	 */
 	private String txtPregunta;
+	
 	/**
 	 * Atributo que representa la cantidad de preguntas
 	 */
 	private int identificador;
-
 
 	/**
 	 * Atributo que representa las respuestas de la pregunta
@@ -40,13 +41,14 @@ public class Pregunta {
 	 * Constructor de la clase pregunta
 	 * @param info - arreglo de tipo String que contiene la pregunta y sus respuestas
 	 */
-	public Pregunta(String[] info) {
+	public Pregunta(String[] info, int identificador) {
 		if(info !=null) {
 			txtPregunta = info[0];
 			respuestas = new String[4];
 			for(int i=1; i<5;i++) {
 				respuestas[i-1] = info[i];
 			}
+			this.identificador = identificador;
 		}
 	}
 

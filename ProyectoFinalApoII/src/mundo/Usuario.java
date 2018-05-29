@@ -643,6 +643,33 @@ public abstract class Usuario implements Comparable<Usuario>, Comparator<Usuario
 			return this;
 		}
 	}
+	//--------------//
+	public void agregarUsuario(Usuario actual) {
+		if(actual.getEdad()>edad) {
+			if(derecho==null) {
+				derecho = actual; 	
+			}else {
+				derecho.agregarUsuario(actual);
+			}
+		}else {
+			if(izquierdo==null) {
+				izquierdo = actual;
+			}else {
+				izquierdo.agregarUsuario(actual);
+			}
+		}
+	}
+	
+	//-------------------//
+	public void reseteador() {
+		resetear();
+		if(izquierdo!=null) {
+			izquierdo.reseteador();
+		}
+		if(derecho!=null) {
+			derecho.reseteador();
+		}
+	}
 	
 	@Override
 	public int compareTo(Usuario user) {

@@ -70,6 +70,7 @@ public class IcesiMatch implements Comparator<Usuario>{
 	public IcesiMatch() {
 		cargar();
 	}
+	
 	/**
 	 * Dar de la raiz del arbol
 	 * @return raiz /Usuario
@@ -162,16 +163,18 @@ public class IcesiMatch implements Comparator<Usuario>{
 			Pregunta aux = null;
 			Pregunta cambio = null;
 			String linea = br.readLine();
+			int id = 1;
 			while(linea!=null) {
 				if(aux==null) {
-					cambio = new Pregunta(linea.split("/"));
+					cambio = new Pregunta(linea.split("/"), id);
 					inicio = cambio;
 					aux = inicio;
 				}else {
-					cambio = new Pregunta(linea.split("/"));
+					cambio = new Pregunta(linea.split("/"), id);
 					aux.setSiguiente(cambio);
 					aux = aux.getSiguiente();
 				}
+				id++;
 				linea = br.readLine();
 			}
 		} catch (Exception e) {
@@ -293,6 +296,23 @@ public class IcesiMatch implements Comparator<Usuario>{
 		}
 	}
 	
+	//------------------//
+	public void AgregarActual() {
+		if(raiz!=null) {
+			raiz.agregarUsuario(Usuario actual);
+		}else {
+			raiz = actual;
+		}
+	}
+	
+	//------------------//
+	public void resetear() {
+		if(raiz!=null) {
+			raiz.reseteador(){
+				
+			}
+		}
+	}
 	@Override
 	/**
 	 * Metodod compare de la interfaz comparator
