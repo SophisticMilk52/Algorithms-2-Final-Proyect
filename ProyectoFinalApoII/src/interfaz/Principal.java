@@ -7,6 +7,10 @@ import javax.swing.JFrame;
 
 import javax.swing.UIManager;
 
+import mundo.IcesiMatch;
+import mundo.Pregunta;
+import mundo.Usuario;
+
 /**
  * Esta clase es la clase principal del paquete interfaz. Es la que ejecutará la parte visible del programa y contendrá los métodos de una clase especifica y que vayan a ser necesitados por otras
  */
@@ -18,6 +22,7 @@ public class Principal extends JFrame{
 	private LegalWindow lw;//Relación con la clase LegalWindow
 	private PanelPreguntas pPreguntas;//Relación con la clase PanelPreguntas
 	private UsuarioWindow uw;
+	private IcesiMatch im;
 	
 	public Principal() {
 		setLayout(new BorderLayout());
@@ -32,6 +37,7 @@ public class Principal extends JFrame{
 		pPreguntas=new PanelPreguntas(this);
 		lw=new LegalWindow(this);
 		uw=new UsuarioWindow(this);
+		im=new IcesiMatch();
 		
 		lw.mostrarVentanaLegal();
 		
@@ -87,6 +93,28 @@ public class Principal extends JFrame{
 	 */
 	public void mostrarVentanaUsuario() {
 		uw.mostrarVentanaUsuario();
+	}
+	
+	public void insertarPregunta() {
+		pPreguntas.insertarPregunta();
+	}
+	
+	public void insertarRespuestas() {
+		pPreguntas.insertarRespuestas();
+	}
+	
+	//METODOS DEL MUNDO//
+	
+	public void agregarUsuario(Usuario actual) {
+		im.getRaiz().agregarUsuario(actual);
+	}
+	
+	public Pregunta darPreguntaActual() {
+		return im.getInicio();
+	}
+	
+	public void setPreguntaActual(Pregunta act) {
+		im.setInicio(act);
 	}
 	
 }
