@@ -6,11 +6,18 @@ import java.awt.BorderLayout;
  * Esta clase pretende ofrecer la ventana visible que contendrá el diseño que ofrecerá el "PanelUsuario", donde el usuario tendrá que digitar la información que se le pida
  */
 public class UsuarioWindow extends JDialog{
-	/**
-	 * Relacion entre clases
-	 */
-	public PanelUsuario pUsuario;//relación con la clase PanelUsuario
 	
+	//RELACIONES ENTRE CLASES
+	/**
+	 * relación con la clase PanelUsuario
+	 */
+	public PanelUsuario pUsuario;
+	
+	//CONSTRUCTOR//
+	/**
+	 * constructor de la clase UsuarioWindow
+	 * @param p objeto de tipo Principal que sirve como conexion a la clase Principal
+	 */
 	public UsuarioWindow(Principal p) {
 		super(p);
 		
@@ -23,16 +30,20 @@ public class UsuarioWindow extends JDialog{
 		add(pUsuario,BorderLayout.CENTER);
 	}
 	/**
-	 * Este método cierra la ventana de donde el usuario registrará sus datos (UsuarioWindow)
-	 *  <b>post:</b> Se ha cerrado la ventana.<br>
+	 * Este método muestra la ventana en donde el usuario registrará sus datos (UsuarioWindow)
+	 *  <b>post:</b> Se ha mostrado la ventana.<br>
 	 */
 	public void mostrarVentanaUsuario() {
 		setVisible(true);
 	}
-	
+	/**
+	 * Este método cierra la ventana en donde el usuario registrará sus datos (UsuarioWindow)
+	 *  <b>post:</b> Se ha cerrado la ventana.<br>
+	 */
 	public void cerrarVentanaUsuario() {
 		dispose();
 	}
+	
 	public void refrescar() {
 		pUsuario.repaint();
 		pUsuario.revalidate();
