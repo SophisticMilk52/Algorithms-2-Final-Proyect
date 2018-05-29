@@ -1,26 +1,27 @@
 package interfaz;
 
 import javax.swing.JPanel;
+
+import mundo.Pregunta;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagLayout;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.Graphics;
-import java.awt.GridLayout;
 
-public class PanelPreguntas extends JPanel implements ActionListener, MouseListener{
+public class PanelPreguntas extends JPanel implements ActionListener{
   
   public static final String SIG="siguiente";
-
+	
 	private JButton siguiente;
 	private JLabel pregunta;
 	private JComboBox<String> respuestas;
@@ -29,8 +30,8 @@ public class PanelPreguntas extends JPanel implements ActionListener, MouseListe
   
   public PanelPreguntas(Principal p){
     this.p=p;
-    this.addMouseListener(this);
-   setLayout(new GridLayout(1,3));
+    
+   setLayout(new BorderLayout(1,3));
 
 	JPanel aux= new JPanel();
 	aux.setLayout(new GridBagLayout());
@@ -130,14 +131,36 @@ public class PanelPreguntas extends JPanel implements ActionListener, MouseListe
 	  
 	  	JLabel lo= new JLabel();
 		JLabel la= new JLabel();
-		add(la);
-		add(aux);
-		add(lo);
+		add(la,BorderLayout.WEST);
+		add(aux,BorderLayout.CENTER);
+		add(lo,BorderLayout.EAST);
+		
+  }
+  
+  public void siguientePregunta() {
+	 p.setPreguntaActual(p.darPreguntaActual().getSiguiente());
+  }
+  
+  public void insertarPregunta() {
+	  pregunta.setText(p.darPreguntaActual().getTxtPregunta());
+  }
+  
+  public void insertarRespuestas() {
+	  Pregunta pre=p.darPreguntaActual();
+	  for(int i=0;i<pre.getRespuestas().length;i++) {
+		  respuestas.addItem(pre.getRespuestas()[i]);
+	  }
   }
   
   @Override
   public void actionPerformed(ActionEvent a) {
 	String comando=a.getActionCommand();
+	if(comando.equals(SIG)) {
+		respuestas.removeAllItems();
+		siguientePregunta();
+		insertarPregunta();
+		insertarRespuestas();		
+	}
   }
   @Override
   public void paint(Graphics g) {
@@ -166,34 +189,6 @@ public class PanelPreguntas extends JPanel implements ActionListener, MouseListe
 		g.drawImage(Termometro.getImage(), 450, 50, this);
 		System.out.println(p.getTexto());
 	}
-  }
-  @Override
-  public void mouseClicked(MouseEvent e) {
-  	System.out.println(e.getX()+" "+ e.getY());
-  }
-
-  @Override
-  public void mouseEntered(MouseEvent e) {
-  	// TODO Auto-generated method stub
-  	
-  }
-
-  @Override
-  public void mouseExited(MouseEvent e) {
-  	// TODO Auto-generated method stub
-  	
-  }
-
-  @Override
-  public void mousePressed(MouseEvent e) {
-  	// TODO Auto-generated method stub
-  	
-  }
-
-  @Override
-  public void mouseReleased(MouseEvent e) {
-  
-  	
   }
 }
 
