@@ -1,6 +1,10 @@
 package mundo;
 
-import java.util.ArrayList;
+import excepciones.PopularException;
+
+import excepciones.SexualidadException;
+
+import excepciones.SolitarioException;
 
 public class Hermafrodita extends Usuario{
 
@@ -17,8 +21,35 @@ public class Hermafrodita extends Usuario{
 	}
 
 	@Override
-	public void emparejar(Usuario pareja) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void emparejar(Usuario pareja) throws PopularException, SexualidadException, SolitarioException {
+		if(getPopularidad()>7) {
+			if(pareja.getCoincidencias()>6) {
+				if(getIdSexual().equals(HETERO)) {
+					if(!pareja.getGenero().equals(HERMA) && pareja.getIdSexual().equals(BI)) {
+						setPareja(pareja);
+					}else {
+						throw new SexualidadException(pareja.getNombre());
+					}
+				}else if(getIdSexual().equals(HOMO)) {
+					if(pareja.getGenero().equals(HERMA) && !pareja.getIdSexual().equals(HETERO)) {
+						setPareja(pareja);
+					}else {
+						throw new SexualidadException(pareja.getNombre());
+					}
+				}else {
+					if(!pareja.getGenero().equals(HERMA) && pareja.getIdSexual().equals(BI)) {
+						setPareja(pareja);
+					}else if(pareja.getGenero().equals(HERMA) && !pareja.getIdSexual().equals(HETERO)) {
+						setPareja(pareja);
+					}else {
+						throw new SexualidadException(pareja.getNombre());
+					}
+				}
+			}else {
+				throw new SolitarioException();
+			}
+		}else {
+			throw new PopularException();
+		}
 	}
 }

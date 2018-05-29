@@ -1,9 +1,8 @@
 package mundo;
 
 import java.io.*;
-import java.util.ArrayList;
 
-public abstract class Usuario implements Comparable<Usuario>, Serializable, Icontable, IEmparejable{
+public abstract class Usuario implements Comparable<Usuario>, Serializable, Icontable, IEmparejable, IReseteable{
 	
 	//RELACIONES//
 	private Usuario derecho;
@@ -67,6 +66,22 @@ public abstract class Usuario implements Comparable<Usuario>, Serializable, Icon
 		this.altura = altura;
 		this.edad = edad;
 		this.semestre = semestre;
+	}
+
+	public Usuario getPareja() {
+		return pareja;
+	}
+
+	public void setPareja(Usuario pareja) {
+		this.pareja = pareja;
+	}
+
+	public int getCoincidencias() {
+		return coincidencias;
+	}
+
+	public void setCoincidencias(int coincidencias) {
+		this.coincidencias = coincidencias;
 	}
 
 	public Usuario getDerecho() {
@@ -270,6 +285,7 @@ public abstract class Usuario implements Comparable<Usuario>, Serializable, Icon
 		if(decPregunta==user.getDecPregunta()) {
 			cantidadDeAciertos++;
 		}
+		user.setCoincidencias(cantidadDeAciertos);
 		return cantidadDeAciertos;	
 	}
 	
@@ -283,5 +299,10 @@ public abstract class Usuario implements Comparable<Usuario>, Serializable, Icon
 			valor += izquierdo.contar();
 		}
 		return valor;
+	}
+	
+	@Override
+	public void resetear() {
+		coincidencias = 0;
 	}
 }
