@@ -2,7 +2,7 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Universidad Icesi (Cali - Colombia)
  * Proyecto Final Algoritmos Y Progamación 2
- * @author Autores: Cristian Gironza, Alejandro, Brayan
+ * @author Autores: Cristian Gironza, Alejandro Narvaez, Brayan 
  * Todos los derechos reservados y para usos con fines educativos
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  **/
