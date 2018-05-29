@@ -1,9 +1,9 @@
 /**
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad Icesi (Cali - Colombia)
- * Proyecto Final Algoritmos Y Progamación 2
- * @author Autores: Cristian Gironza, Alejandro Narvaez, Brayan 
- * Todos los derechos reservados y para usos con fines educativos
+ * Universidad Icesi (Cali - Colombia)<br/>
+ * Proyecto Final Algoritmos Y Progamación 2<br/>
+ * @author Autores: Cristian Gironza, Alejandro Narvaez, Brayan <br/>
+ * Todos los derechos reservados y para usos con fines educativos<br/>
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  **/
 
@@ -172,6 +172,12 @@ public class IcesiMatch implements Comparator<Usuario>{
 		}	
 	}
 	
+	public void generarCoincidencias() {
+		if(raiz!=null) {
+			raiz.VerCoincidencias(actual);
+		}
+	}
+	
 	public void contar() {
 		int cantidad = 0;
 		if(raiz!=null) {
@@ -182,8 +188,7 @@ public class IcesiMatch implements Comparator<Usuario>{
 
 	@Override
 	public int compare(Usuario u1, Usuario u2) {
-		// TODO Auto-generated method stub
-		return 0;
+		return u1.getCoincidencias()-u2.getCoincidencias();
 	}
 
 }
