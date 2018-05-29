@@ -70,35 +70,59 @@ public class IcesiMatch implements Comparator<Usuario>{
 	public IcesiMatch() {
 		cargar();
 	}
-	
+	/**
+	 * Dar de la raiz del arbol
+	 * @return raiz /Usuario
+	 */
 	public Usuario getRaiz() {
 		return raiz;
 	}
-
+/**
+ * Modificar de la raiz del arbol
+ * @param raiz/Usuario
+ */
 	public void setRaiz(Usuario raiz) {
 		this.raiz = raiz;
 	}
-
+/**
+ * Dar de la lista de preguntas
+ * @return inicio/Pregunta
+ */
 	public Pregunta getInicio() {
 		return inicio;
 	}
-
+/**
+ *Modificar la pregunta inicial 
+ * @param inicio/Pregunta
+ */
 	public void setInicio(Pregunta inicio) {
 		this.inicio = inicio;
 	}
-
+/**
+ *  Dar cantidad de usuario
+ * @return cantidad/ int da la cantidad de usuarios en el arbol
+ */
 	public int getCantidad() {
 		return cantidad;
 	}
-
+/**
+ * Modifica la cantidad de usuarios del arbol
+ * @param cantidad / int cantidad de usuarios del arbol
+ */
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-
+/**
+ *  Dar el usuario actual
+ * @return actual/ Usuario actual
+ */
 	public Usuario getActual() {
 		return actual;
 	}
-
+/**
+ * Modificar de Usuario actual
+ * @param actual /Usuario es el nuevo usuario
+ */
 	public void setActual(Usuario actual) {
 		this.actual = actual;
 	}
@@ -167,7 +191,9 @@ public class IcesiMatch implements Comparator<Usuario>{
 		contar();
 	}
 	
-	
+	/**
+	 * Este metodo guardar guardara todos los estados tanto en serializable como en texto plano
+	 */
 	public void guardar() {
 		try {
 			
@@ -175,13 +201,17 @@ public class IcesiMatch implements Comparator<Usuario>{
 			
 		}	
 	}
-	
+	/**
+	 * Este metodo asigna las coincidencia a todos los usuarios registrados
+	 */
 	public void generarCoincidencias() {
 		if(raiz!=null) {
 			raiz.VerCoincidencias(actual);
 		}
 	}
-	
+/**
+ * Este metodo cuenta la cantidades de usuarios que hay	
+ */
 	public void contar() {
 		int cantidad = 0;
 		if(raiz!=null) {
@@ -189,7 +219,13 @@ public class IcesiMatch implements Comparator<Usuario>{
 		}
 		this.cantidad = cantidad;
 	}
-	
+	/**
+	 * Este metodo le encuentra la pareja al usuario actual
+	 * @throws NullPointerException
+	 * @throws PopularException
+	 * @throws SexualidadException
+	 * @throws SolitarioException
+	 */
 	public void hacerMatch() throws NullPointerException, PopularException, SexualidadException, SolitarioException {
 		Usuario pareja = null;
 		if(raiz!=null) {
@@ -198,7 +234,17 @@ public class IcesiMatch implements Comparator<Usuario>{
 		}
 		actual.emparejar(pareja);
 	}
-	
+	/**
+	 * Este metodo permite inicializar el estado del usuario actual
+     * @param foto /String ruta de la imagen
+	 * @param nombre /String nombre del usuario
+	 * @param genero /String genero del usuario
+	 * @param idSexual/ String id del usuario
+	 * @param carrera /String carrera del usuario
+	 * @param altura /double altura dle usuario
+	 * @param edad /int edad del usuario
+	 * @param semestre /int semestre del usuario
+	 */
 	public void registrarUsuario(String foto, String nombre, String genero, String idSexual, String carrera, double altura, int edad, int semestre){
 		if(genero.equals(Mujer.MUJER)) {
 			actual = new Mujer(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', foto, nombre, idSexual, carrera, altura, edad, semestre);
@@ -208,7 +254,11 @@ public class IcesiMatch implements Comparator<Usuario>{
 			actual = new Hermafrodita(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', foto, nombre, idSexual, carrera, altura, edad, semestre);
 		}
 	}
-	
+	/**
+	 * Este metodo me permite cambiar el estado de la pregunta que se esta respondiendo
+	 * @param cual /int numero de la pregunta
+	 * @param responde/ char respuesta de  la pregunta
+	 */
 	public void responder(int cual, char responde) {
 		if(cual==1) {
 			actual.setPriPregunta(responde);
@@ -244,6 +294,9 @@ public class IcesiMatch implements Comparator<Usuario>{
 	}
 	
 	@Override
+	/**
+	 * Metodod compare de la interfaz comparator
+	 */
 	public int compare(Usuario u1, Usuario u2) {
 		return u1.getCoincidencias()-u2.getCoincidencias();
 	}
