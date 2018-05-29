@@ -299,7 +299,7 @@ public class IcesiMatch implements Comparator<Usuario>{
 	//------------------//
 	public void AgregarActual() {
 		if(raiz!=null) {
-			raiz.agregarUsuario(Usuario actual);
+			raiz.agregarUsuario(actual);
 		}else {
 			raiz = actual;
 		}
@@ -308,9 +308,7 @@ public class IcesiMatch implements Comparator<Usuario>{
 	//------------------//
 	public void resetear() {
 		if(raiz!=null) {
-			raiz.reseteador(){
-				
-			}
+			raiz.reseteador();
 		}
 	}
 	@Override
