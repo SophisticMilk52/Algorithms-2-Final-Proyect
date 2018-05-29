@@ -8,11 +8,17 @@ import javax.swing.JDialog;
  */
 public class LegalWindow extends JDialog{
 	
+	//RELACIONES ENTRE CLASES//
 	/**
-	 * Relaciones entre clases
+	 * Relacion con la clase PanelLegal
 	 */
-	public PanelLegal pLegal;//Relación con la clase PanelLegal
-
+	public PanelLegal pLegal;
+	
+	//CONSTRUCTOR
+	/**
+	 * constructor de la clase LegalWindow
+	 * @param p objeto de tipo Principal que sirve como conexion a la clase Principal
+	 */
 	public LegalWindow(Principal p) {
 		super(p);
 		
@@ -25,11 +31,17 @@ public class LegalWindow extends JDialog{
 		
 		add(pLegal,BorderLayout.CENTER);
 	}
-	
+	/**	
+	 * Este método cierra la ventana (JDialog) en donde se encontrará el contrato para el usuario.
+	 * <b>post:</b> Se ha cerrado la ventana de contrato (JDialog).<br>
+	 */
 	public void cerrarVentanaLegal() {
 		dispose();
 	}
-	
+	/**	
+	 * Este método muestra la ventana (JDialog) en donde se encontrará el contrato para el usuario.
+	 * <b>post:</b> Se ha cerrado la ventana de contrato (JDialog).<br>
+	 */
 	public void mostrarVentanaLegal() {
 		setVisible(true);
 	}
