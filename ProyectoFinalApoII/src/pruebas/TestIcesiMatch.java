@@ -13,6 +13,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import excepciones.PopularException;
+import excepciones.SexualidadException;
+import excepciones.SolitarioException;
 import junit.framework.TestCase;
 
 import mundo.Hombre;
@@ -29,15 +32,9 @@ import mundo.Usuario;
 class TestIcesiMatch extends TestCase {
 	
 	//RELACIONES//
-	/**
-	 * Relacion que representa la clase que se desea probar
-	 */
 	private IcesiMatch prueba;
 	
 	//ESCENARIO//
-	/**
-	 * Metodo que crea el escenario con el que se va a probar la clase
-	 */
 	public void escenario() {
 		prueba = new IcesiMatch();
 		prueba.setActual(new Hombre('A', 'B', 'A', 'C', 'D', 'A', 'A', 'A','D', 'D', "James", "James", Usuario.HETERO, "Ingeniería Telemática", 1.85, 22, 6));
@@ -46,18 +43,55 @@ class TestIcesiMatch extends TestCase {
 	}
 	
 	//TEST//
-	/**
-	 * Test del método cargar 
-	 */
 	@Test
-	public void testCargar() {
-		escenario();
-		prueba.setActual(null);
-		prueba.setCantidad(0);
-		prueba.setInicio(null);
-		prueba.setRaiz(null);
-		prueba.cargar();
-		assert(prueba.getInicio());
+	public void TestCoincidencias() {
+		this.escenario();
+		prueba.generarCoincidencias();
+		assertEquals(10, prueba.getRaiz().getCoincidencias());
 	}
-	
+	@Test
+	public void TestContar() {
+		this.escenario();
+		prueba.contar();
+		assertEquals(2, prueba.getRaiz().contar());
+	}
+	@Test
+	public void TesthacerMatch() {
+		this.escenario();
+		try {
+			prueba.hacerMatch();
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (PopularException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SexualidadException e) {
+			// TODO Auto-generated catch block
+
+		} catch (SolitarioException e) {
+			// TODO Auto-generated catch block
+		System.out.println(e.getMessage());
+		}
+		assertNull( prueba.getActual().getPareja());
+	}
+	@Test
+	public void TestregistrarUsuario() {
+		this.escenario();
+		prueba.registrarUsuario("hola","hola", "hola", "Homo Sexual", "hola", 0, 0,0);
+		assertEquals("hola", prueba.getActual().getNombre());
+	}
+	@Test
+	public void TestAgregarActual() {
+		this.escenario();
+		prueba.AgregarActual();
+		prueba.contar();
+		assertEquals(3, prueba.getCantidad());
+	}
+	@Test
+	public void TestResetear() {
+		this.escenario();
+		prueba.resetear();;
+		assertEquals(0, prueba.getActual().getCoincidencias());
+	}
 }
