@@ -38,6 +38,7 @@ public abstract class Usuario implements Comparable<Usuario>, Comparator<Usuario
 	 */
 	public static final char RESPONDE_A='A';
 	
+	
 	/**
 	 * constante respuesta B
 	 */

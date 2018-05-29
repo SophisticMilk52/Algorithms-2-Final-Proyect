@@ -239,6 +239,7 @@ public class IcesiMatch implements Comparator<Usuario>{
 		}
 		if(cual==10) {
 			actual.setDecPregunta(responde);
+			
 		}
 	}
 	
