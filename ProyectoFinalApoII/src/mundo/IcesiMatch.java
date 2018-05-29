@@ -13,6 +13,10 @@ import java.io.*;
 
 import java.util.*;
 
+import excepciones.PopularException;
+import excepciones.SexualidadException;
+import excepciones.SolitarioException;
+
 /**
  * Clase que representa a la aplicación IcesiMatch
  */
@@ -185,7 +189,59 @@ public class IcesiMatch implements Comparator<Usuario>{
 		}
 		this.cantidad = cantidad;
 	}
-
+	
+	public void hacerMatch() throws NullPointerException, PopularException, SexualidadException, SolitarioException {
+		Usuario pareja = null;
+		if(raiz!=null) {
+			pareja = raiz;
+			pareja = raiz.HacerMatch(pareja);
+		}
+		actual.emparejar(pareja);
+	}
+	
+	public void registrarUsuario(String foto, String nombre, String genero, String idSexual, String carrera, double altura, int edad, int semestre){
+		if(genero.equals(Mujer.MUJER)) {
+			actual = new Mujer(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', foto, nombre, idSexual, carrera, altura, edad, semestre);
+		}else if(genero.equals(Hombre.HOMBRE)) {
+			actual = new Hombre(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', foto, nombre, idSexual, carrera, altura, edad, semestre);
+		}else {
+			actual = new Hermafrodita(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', foto, nombre, idSexual, carrera, altura, edad, semestre);
+		}
+	}
+	
+	public void responder(int cual, char responde) {
+		if(cual==1) {
+			actual.setPriPregunta(responde);
+		}
+		if(cual==2) {
+			actual.setSegPregunta(responde);		
+		}
+		if(cual==3) {
+			actual.setTerPregunta(responde);
+		}
+		if(cual==4) {
+			actual.setCuarPregunta(responde);
+		}
+		if(cual==5) {
+			actual.setQuinPregunta(responde);
+		}
+		if(cual==6) {
+			actual.setSexPregunta(responde);
+		}
+		if(cual==7) {
+			actual.setSepPregunta(responde);
+		}
+		if(cual==8) {
+			actual.setOctPregunta(responde);
+		}
+		if(cual==9) {
+			actual.setNovPregunta(responde);
+		}
+		if(cual==10) {
+			actual.setDecPregunta(responde);
+		}
+	}
+	
 	@Override
 	public int compare(Usuario u1, Usuario u2) {
 		return u1.getCoincidencias()-u2.getCoincidencias();
