@@ -17,7 +17,7 @@ import mundo.Hombre;
 import mundo.Mujer;
 
 /**
- * Clase que representa las pruebas de la aplicación IcesiMatch
+ * Clase que representa las pruebas de la clase mujer
  */
 class TestMujer extends TestCase {
 	
