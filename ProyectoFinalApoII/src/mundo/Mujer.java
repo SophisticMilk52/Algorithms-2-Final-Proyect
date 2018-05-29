@@ -21,7 +21,7 @@ public class Mujer extends Usuario{
 	}
 
 	@Override
-	public void emparejar(Usuario pareja) throws PopularException, SexualidadException, SolitarioException {
+	public void emparejar(Usuario pareja) throws PopularException, SexualidadException, SolitarioException, NullPointerException {
 		if(getPopularidad()>7) {
 			if(pareja.getCoincidencias()>6) {
 				if(getIdSexual().equals(HETERO)) {

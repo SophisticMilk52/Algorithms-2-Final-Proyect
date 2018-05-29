@@ -31,9 +31,8 @@ public class Pregunta {
 	
 	//CONSTRUCTOR//
 	/**
-	 * Constructor de la clae pregunta
-	 * @param txtPregunta - el texto de la pregunta
-	 * @param respuestas - las respuestas de la pregunta
+	 * Constructor de la clase pregunta
+	 * @param info - arreglo de tipo String que contiene la pregunta y sus respuestas
 	 */
 	public Pregunta(String[] info) {
 		if(info !=null) {

@@ -252,7 +252,17 @@ public abstract class Usuario implements Comparable<Usuario>, Serializable, Icon
 		this.semestre = semestre;
 	}
 	
+	public void VerCoincidencias(Usuario actual) {
+		actual.compareTo(this);
+		if(derecho!=null) {
+			derecho.VerCoincidencias(actual);
+		}
+		if(izquierdo!=null) {
+			izquierdo.VerCoincidencias(actual);
+		}
+	}
 	@Override
+	
 	public int compareTo(Usuario user) {
 		int cantidadDeAciertos = 0;
 		if(priPregunta==user.getPriPregunta()) {

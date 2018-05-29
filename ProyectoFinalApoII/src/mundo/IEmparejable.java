@@ -8,5 +8,5 @@ import excepciones.SolitarioException;
 
 public interface IEmparejable {
 
-	public void emparejar(Usuario pareja) throws PopularException, SexualidadException, SolitarioException;
+	public void emparejar(Usuario pareja) throws PopularException, SexualidadException, SolitarioException, NullPointerException;
 }
