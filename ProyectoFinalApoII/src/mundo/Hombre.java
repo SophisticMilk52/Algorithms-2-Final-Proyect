@@ -52,7 +52,7 @@ public class Hombre extends Usuario{
 	 * 
 	 */
 	public void emparejar(Usuario pareja) throws PopularException, SexualidadException, SolitarioException {
-		if(getPopularidad()>7) {
+		if(getPopularidad()<7) {
 			if(pareja.getCoincidencias()>6) {
 				if(getIdSexual().equals(HETERO)) {
 					if(pareja.getGenero().equals(Mujer.MUJER) && !pareja.getIdSexual().equals(HOMO)) {
