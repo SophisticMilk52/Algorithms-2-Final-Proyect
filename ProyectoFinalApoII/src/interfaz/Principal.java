@@ -16,12 +16,22 @@ import mundo.Usuario;
  */
 public class Principal extends JFrame{
 	
+	//RELACIONES//
 	/**
-	 * Relaciones entre clases
+	 * Relacion con la clase LegalWindow
 	 */
-	private LegalWindow lw;//Relación con la clase LegalWindow
-	private PanelPreguntas pPreguntas;//Relación con la clase PanelPreguntas
+	private LegalWindow lw;
+	/**
+	 * Relacion con la clase PanelPreguntas
+	 */
+	private PanelPreguntas pPreguntas;
+	/**
+	 * Relacion con la clase UsuarioWindow
+	 */
 	private UsuarioWindow uw;
+	/**
+	 * Relacion con la clase icesimatch
+	 */
 	private IcesiMatch im;
 	
 	public Principal() {
